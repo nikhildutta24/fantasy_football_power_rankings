@@ -1,0 +1,121 @@
+team,week,points_for,points_against,win,opponent
+ Duuvall Jags,1,127.28,109.28,1,Fields Of Dreams
+ Duuvall Jags,2,92.34,114.8,0,Mr Mahomo 
+ Duuvall Jags,3,140.24,149.56,0,Koreatown  Chopsticks
+ Duuvall Jags,4,156.1,126.92,1,Last-a-Minutemen
+ Duuvall Jags,5,136.0,127.32,1,The Godfather
+ Duuvall Jags,6,120.12,126.88,0,Renfrow v Wade
+ Duuvall Jags,7,102.04,161.0,0,My Ball Zach Ertz
+ Duuvall Jags,8,113.16,226.34,0,Fields Of Dreams
+ Duuvall Jags,9,156.44,141.32,1,Mr Mahomo 
+ Duuvall Jags,10,91.42,205.38,0,Koreatown  Chopsticks
+ Duuvall Jags,11,95.9,107.74,0,Last-a-Minutemen
+ Duuvall Jags,12,136.76,102.02,1,The Godfather
+ Duuvall Jags,13,107.0,118.04,0,Renfrow v Wade
+ Duuvall Jags,14,104.1,112.74,0,My Ball Zach Ertz
+ Duuvall Jags,15,122.8,121.6,1,Last-a-Minutemen
+Fields Of Dreams,1,109.28,127.28,0, Duuvall Jags
+Fields Of Dreams,2,137.6,147.9,0,Koreatown  Chopsticks
+Fields Of Dreams,3,111.32,105.52,1,Mr Mahomo 
+Fields Of Dreams,4,99.78,123.56,0,My Ball Zach Ertz
+Fields Of Dreams,5,141.38,121.22,1,Last-a-Minutemen
+Fields Of Dreams,6,125.44,155.18,0,The Godfather
+Fields Of Dreams,7,102.02,121.34,0,Renfrow v Wade
+Fields Of Dreams,8,226.34,113.16,1, Duuvall Jags
+Fields Of Dreams,9,125.88,122.82,1,Koreatown  Chopsticks
+Fields Of Dreams,10,110.2,86.7,1,Mr Mahomo 
+Fields Of Dreams,11,118.22,136.18,0,My Ball Zach Ertz
+Fields Of Dreams,12,116.14,168.46,0,Last-a-Minutemen
+Fields Of Dreams,13,146.34,152.4,0,The Godfather
+Fields Of Dreams,14,73.9,106.1,0,Renfrow v Wade
+Fields Of Dreams,15,115.6,90.14,1,My Ball Zach Ertz
+Koreatown  Chopsticks,1,105.72,149.12,0,Mr Mahomo 
+Koreatown  Chopsticks,2,147.9,137.6,1,Fields Of Dreams
+Koreatown  Chopsticks,3,149.56,140.24,1, Duuvall Jags
+Koreatown  Chopsticks,4,141.9,135.08,1,The Godfather
+Koreatown  Chopsticks,5,151.9,144.92,1,Renfrow v Wade
+Koreatown  Chopsticks,6,146.74,69.6,1,My Ball Zach Ertz
+Koreatown  Chopsticks,7,167.88,135.58,1,Last-a-Minutemen
+Koreatown  Chopsticks,8,151.02,123.28,1,Mr Mahomo 
+Koreatown  Chopsticks,9,122.82,125.88,0,Fields Of Dreams
+Koreatown  Chopsticks,10,205.38,91.42,1, Duuvall Jags
+Koreatown  Chopsticks,11,108.96,120.82,0,The Godfather
+Koreatown  Chopsticks,12,128.66,167.78,0,Renfrow v Wade
+Koreatown  Chopsticks,13,124.26,109.72,1,My Ball Zach Ertz
+Koreatown  Chopsticks,14,115.32,175.36,0,Last-a-Minutemen
+Koreatown  Chopsticks,15,136.84,165.7,0,The Godfather
+Last-a-Minutemen,1,104.62,126.96,0,My Ball Zach Ertz
+Last-a-Minutemen,2,123.94,109.88,1,Renfrow v Wade
+Last-a-Minutemen,3,121.02,116.12,1,The Godfather
+Last-a-Minutemen,4,126.92,156.1,0, Duuvall Jags
+Last-a-Minutemen,5,121.22,141.38,0,Fields Of Dreams
+Last-a-Minutemen,6,170.96,99.64,1,Mr Mahomo 
+Last-a-Minutemen,7,135.58,167.88,0,Koreatown  Chopsticks
+Last-a-Minutemen,8,115.78,99.92,1,My Ball Zach Ertz
+Last-a-Minutemen,9,105.96,95.8,1,Renfrow v Wade
+Last-a-Minutemen,10,167.4,154.64,1,The Godfather
+Last-a-Minutemen,11,107.74,95.9,1, Duuvall Jags
+Last-a-Minutemen,12,168.46,116.14,1,Fields Of Dreams
+Last-a-Minutemen,13,85.88,92.84,0,Mr Mahomo 
+Last-a-Minutemen,14,175.36,115.32,1,Koreatown  Chopsticks
+Last-a-Minutemen,15,121.6,122.8,0, Duuvall Jags
+Mr Mahomo ,1,149.12,105.72,1,Koreatown  Chopsticks
+Mr Mahomo ,2,114.8,92.34,1, Duuvall Jags
+Mr Mahomo ,3,105.52,111.32,0,Fields Of Dreams
+Mr Mahomo ,4,145.24,128.3,1,Renfrow v Wade
+Mr Mahomo ,5,111.24,110.22,1,My Ball Zach Ertz
+Mr Mahomo ,6,99.64,170.96,0,Last-a-Minutemen
+Mr Mahomo ,7,103.74,119.58,0,The Godfather
+Mr Mahomo ,8,123.28,151.02,0,Koreatown  Chopsticks
+Mr Mahomo ,9,141.32,156.44,0, Duuvall Jags
+Mr Mahomo ,10,86.7,110.2,0,Fields Of Dreams
+Mr Mahomo ,11,109.8,141.54,0,Renfrow v Wade
+Mr Mahomo ,12,114.02,100.62,1,My Ball Zach Ertz
+Mr Mahomo ,13,92.84,85.88,1,Last-a-Minutemen
+Mr Mahomo ,14,133.58,117.94,1,The Godfather
+Mr Mahomo ,15,148.7,143.16,1,Renfrow v Wade
+My Ball Zach Ertz,1,126.96,104.62,1,Last-a-Minutemen
+My Ball Zach Ertz,2,149.82,115.7,1,The Godfather
+My Ball Zach Ertz,3,111.02,102.96,1,Renfrow v Wade
+My Ball Zach Ertz,4,123.56,99.78,1,Fields Of Dreams
+My Ball Zach Ertz,5,110.22,111.24,0,Mr Mahomo 
+My Ball Zach Ertz,6,69.6,146.74,0,Koreatown  Chopsticks
+My Ball Zach Ertz,7,161.0,102.04,1, Duuvall Jags
+My Ball Zach Ertz,8,99.92,115.78,0,Last-a-Minutemen
+My Ball Zach Ertz,9,112.4,129.46,0,The Godfather
+My Ball Zach Ertz,10,129.64,123.7,1,Renfrow v Wade
+My Ball Zach Ertz,11,136.18,118.22,1,Fields Of Dreams
+My Ball Zach Ertz,12,100.62,114.02,0,Mr Mahomo 
+My Ball Zach Ertz,13,109.72,124.26,0,Koreatown  Chopsticks
+My Ball Zach Ertz,14,112.74,104.1,1, Duuvall Jags
+My Ball Zach Ertz,15,90.14,115.6,0,Fields Of Dreams
+Renfrow v Wade,1,132.62,103.46,1,The Godfather
+Renfrow v Wade,2,109.88,123.94,0,Last-a-Minutemen
+Renfrow v Wade,3,102.96,111.02,0,My Ball Zach Ertz
+Renfrow v Wade,4,128.3,145.24,0,Mr Mahomo 
+Renfrow v Wade,5,144.92,151.9,0,Koreatown  Chopsticks
+Renfrow v Wade,6,126.88,120.12,1, Duuvall Jags
+Renfrow v Wade,7,121.34,102.02,1,Fields Of Dreams
+Renfrow v Wade,8,124.96,144.12,0,The Godfather
+Renfrow v Wade,9,95.8,105.96,0,Last-a-Minutemen
+Renfrow v Wade,10,123.7,129.64,0,My Ball Zach Ertz
+Renfrow v Wade,11,141.54,109.8,1,Mr Mahomo 
+Renfrow v Wade,12,167.78,128.66,1,Koreatown  Chopsticks
+Renfrow v Wade,13,118.04,107.0,1, Duuvall Jags
+Renfrow v Wade,14,106.1,73.9,1,Fields Of Dreams
+Renfrow v Wade,15,143.16,148.7,0,Mr Mahomo 
+The Godfather,1,103.46,132.62,0,Renfrow v Wade
+The Godfather,2,115.7,149.82,0,My Ball Zach Ertz
+The Godfather,3,116.12,121.02,0,Last-a-Minutemen
+The Godfather,4,135.08,141.9,0,Koreatown  Chopsticks
+The Godfather,5,127.32,136.0,0, Duuvall Jags
+The Godfather,6,155.18,125.44,1,Fields Of Dreams
+The Godfather,7,119.58,103.74,1,Mr Mahomo 
+The Godfather,8,144.12,124.96,1,Renfrow v Wade
+The Godfather,9,129.46,112.4,1,My Ball Zach Ertz
+The Godfather,10,154.64,167.4,0,Last-a-Minutemen
+The Godfather,11,120.82,108.96,1,Koreatown  Chopsticks
+The Godfather,12,102.02,136.76,0, Duuvall Jags
+The Godfather,13,152.4,146.34,1,Fields Of Dreams
+The Godfather,14,117.94,133.58,0,Mr Mahomo 
+The Godfather,15,165.7,136.84,1,Koreatown  Chopsticks

@@ -20,7 +20,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 tables = soup.find_all("table", {"class": "Table"})
 
 all_injuries = []
-fantasy_positions = {"QB", "RB", "WR", "TE", "K"}
+fantasy_positions = {"QB", "RB", "WR", "TE", "PK"}
 
 for table in tables:
     rows = table.find_all("tr")
@@ -39,9 +39,13 @@ for table in tables:
 
 injuries_df = pd.DataFrame(all_injuries, columns=["NAME", "POS", "EST_RETURN_DATE", "STATUS", "COMMENT"])
 injuries_df = injuries_df[injuries_df["POS"].isin(fantasy_positions)]
-relevant_statuses = {"Questionable", "Probable", "Doubtful", "Active"}
+relevant_statuses = {"Questionable", "Probable", "Doubtful", "Active", "Injured Reserve"}
 injuries_df = injuries_df[injuries_df["STATUS"].isin(relevant_statuses)]
 
+injuries_df["POS"] = injuries_df["POS"].replace({
+    "PK": "K"
+})
+        
 
 print(injuries_df.head())
 print(f"Total injured fantasy players: {len(injuries_df)}")

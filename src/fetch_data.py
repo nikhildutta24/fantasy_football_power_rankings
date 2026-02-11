@@ -6,14 +6,10 @@ import pandas as pd
 
 load_dotenv()
 
-league_id = os.getenv("LEAGUE_ID")
-year = os.getenv("YEAR")
+league_id = int(os.getenv("LEAGUE_ID"))
+year = int(os.getenv("YEAR"))
 espn_s2 = os.getenv("ESPN_S2")
 swid = os.getenv("ESPN_SWID")
-
-
-league_id = int(league_id)
-year = int(year)
 
 
 league = League(
@@ -27,11 +23,9 @@ league = League(
 rows = []
 
 for week in range(1, league.settings.reg_season_count + 1):
-
     box_scores = league.box_scores(week)
 
     for matchup in box_scores:
-
         # Skip bye weeks
         if matchup.home_team is None or matchup.away_team is None:
             continue
@@ -65,7 +59,6 @@ for week in range(1, league.settings.reg_season_count + 1):
 
 
 df = pd.DataFrame(rows)
-
 df = df.sort_values(["team", "week"]).reset_index(drop=True)
 
 
@@ -75,3 +68,22 @@ df.to_csv("data/raw/weekly_stats.csv", index=False)
 print("CSV saved: data/raw/weekly_stats.csv")
 print(df.head())
 print(f"\nTotal rows: {len(df)}")
+
+roster = []
+for team in league.teams:
+    team_name = team.team_name
+    for player in team.roster:
+        roster.append({
+            "team_name": team_name,
+            "player_name": player.name,
+            "position": player.position,
+            "pro_team": player.proTeam,
+            "injury_status": player.injuryStatus,
+        })
+        
+fantasy_roster = pd.DataFrame(roster)
+os.makedirs("data/raw", exist_ok=True)
+fantasy_roster.to_csv("data/raw/fantasy_roster.csv", index=False)
+
+print("Fantasy roster CSV saved: data/raw/fantasy_roster.csv")
+print(fantasy_roster.head())

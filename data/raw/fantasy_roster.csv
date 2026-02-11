@@ -1,0 +1,136 @@
+team_name,player_name,position,pro_team,injury_status
+Fields Of Dreams,Ja'Marr Chase,WR,CIN,ACTIVE
+Fields Of Dreams,Drake London,WR,ATL,ACTIVE
+Fields Of Dreams,A.J. Brown,WR,PHI,ACTIVE
+Fields Of Dreams,Kyren Williams,RB,LAR,ACTIVE
+Fields Of Dreams,James Cook III,RB,BUF,ACTIVE
+Fields Of Dreams,Breece Hall,RB,NYJ,QUESTIONABLE
+Fields Of Dreams,Aaron Jones Sr.,RB,MIN,QUESTIONABLE
+Fields Of Dreams,Travis Kelce,TE,KC,ACTIVE
+Fields Of Dreams,Baker Mayfield,QB,TB,ACTIVE
+Fields Of Dreams,Rome Odunze,WR,CHI,ACTIVE
+Fields Of Dreams,David Montgomery,RB,DET,ACTIVE
+Fields Of Dreams,Jordan Addison,WR,MIN,ACTIVE
+Fields Of Dreams,Chase McLaughlin,K,TB,ACTIVE
+Fields Of Dreams,Trevor Lawrence,QB,JAX,ACTIVE
+Fields Of Dreams,Steelers D/ST,D/ST,PIT,NORMAL
+Fields Of Dreams,AJ Barner,TE,SEA,ACTIVE
+Fields Of Dreams,Ricky Pearsall,WR,SF,ACTIVE
+My Ball Zach Ertz,Josh Allen,QB,BUF,QUESTIONABLE
+My Ball Zach Ertz,Courtland Sutton,WR,DEN,ACTIVE
+My Ball Zach Ertz,DeVonta Smith,WR,PHI,ACTIVE
+My Ball Zach Ertz,Quinshon Judkins,RB,CLE,INJURY_RESERVE
+My Ball Zach Ertz,Kenneth Walker III,RB,SEA,ACTIVE
+My Ball Zach Ertz,TreVeyon Henderson,RB,NE,ACTIVE
+My Ball Zach Ertz,Marvin Harrison Jr.,WR,ARI,INJURY_RESERVE
+My Ball Zach Ertz,De'Von Achane,RB,MIA,ACTIVE
+My Ball Zach Ertz,Jakobi Meyers,WR,JAX,ACTIVE
+My Ball Zach Ertz,Jordan Love,QB,GB,ACTIVE
+My Ball Zach Ertz,Dalton Schultz,TE,HOU,QUESTIONABLE
+My Ball Zach Ertz,Patriots D/ST,D/ST,NE,NORMAL
+My Ball Zach Ertz,Bills D/ST,D/ST,BUF,NORMAL
+My Ball Zach Ertz,Andy Borregales,K,NE,ACTIVE
+My Ball Zach Ertz,Jayden Reed,WR,GB,ACTIVE
+My Ball Zach Ertz,Zach Ertz,TE,WSH,INJURY_RESERVE
+ Duuvall Jags,Justin Jefferson,WR,MIN,ACTIVE
+ Duuvall Jags,Ashton Jeanty,RB,LV,ACTIVE
+ Duuvall Jags,Bucky Irving,RB,TB,ACTIVE
+ Duuvall Jags,Tee Higgins,WR,CIN,ACTIVE
+ Duuvall Jags,Jalen Hurts,QB,PHI,ACTIVE
+ Duuvall Jags,D'Andre Swift,RB,CHI,ACTIVE
+ Duuvall Jags,Michael Pittman Jr.,WR,IND,ACTIVE
+ Duuvall Jags,Chase Brown,RB,CIN,ACTIVE
+ Duuvall Jags,Wan'Dale Robinson,WR,NYG,INJURY_RESERVE
+ Duuvall Jags,Kyle Pitts Sr.,TE,ATL,ACTIVE
+ Duuvall Jags,Matthew Stafford,QB,LAR,ACTIVE
+ Duuvall Jags,Jason Myers,K,SEA,ACTIVE
+ Duuvall Jags,Christian Watson,WR,GB,ACTIVE
+ Duuvall Jags,Harold Fannin Jr.,TE,CLE,QUESTIONABLE
+ Duuvall Jags,Saints D/ST,D/ST,NO,NORMAL
+ Duuvall Jags,Darnell Mooney,WR,ATL,ACTIVE
+ Duuvall Jags,Parker Washington,WR,JAX,ACTIVE
+Koreatown  Chopsticks,Christian McCaffrey,RB,SF,ACTIVE
+Koreatown  Chopsticks,Jonathan Taylor,RB,IND,ACTIVE
+Koreatown  Chopsticks,Davante Adams,WR,LAR,ACTIVE
+Koreatown  Chopsticks,DK Metcalf,WR,PIT,ACTIVE
+Koreatown  Chopsticks,Emeka Egbuka,WR,TB,ACTIVE
+Koreatown  Chopsticks,Tyler Warren,TE,IND,ACTIVE
+Koreatown  Chopsticks,Tyler Bass,K,BUF,INJURY_RESERVE
+Koreatown  Chopsticks,Seahawks D/ST,D/ST,SEA,NORMAL
+Koreatown  Chopsticks,Cameron Dicker,K,LAC,ACTIVE
+Koreatown  Chopsticks,Jaxson Dart,QB,NYG,ACTIVE
+Koreatown  Chopsticks,Texans D/ST,D/ST,HOU,NORMAL
+Koreatown  Chopsticks,RJ Harvey,RB,DEN,ACTIVE
+Koreatown  Chopsticks,Amon-Ra St. Brown,WR,DET,ACTIVE
+Koreatown  Chopsticks,Tyrone Tracy Jr.,RB,NYG,ACTIVE
+Koreatown  Chopsticks,Chris Godwin Jr.,WR,TB,ACTIVE
+Koreatown  Chopsticks,Colby Parkinson,TE,LAR,ACTIVE
+Koreatown  Chopsticks,Robert Woods,WR,None,ACTIVE
+Mr Mahomo ,Bijan Robinson,RB,ATL,ACTIVE
+Mr Mahomo ,Puka Nacua,WR,LAR,ACTIVE
+Mr Mahomo ,Brock Bowers,TE,LV,INJURY_RESERVE
+Mr Mahomo ,Jayden Daniels,QB,WSH,QUESTIONABLE
+Mr Mahomo ,Terry McLaurin,WR,WSH,ACTIVE
+Mr Mahomo ,Zay Flowers,WR,BAL,ACTIVE
+Mr Mahomo ,Isiah Pacheco,RB,KC,ACTIVE
+Mr Mahomo ,Bo Nix,QB,DEN,INJURY_RESERVE
+Mr Mahomo ,Rhamondre Stevenson,RB,NE,ACTIVE
+Mr Mahomo ,Kenneth Gainwell,RB,PIT,ACTIVE
+Mr Mahomo ,Khalil Shakir,WR,BUF,ACTIVE
+Mr Mahomo ,Chris Boswell,K,PIT,ACTIVE
+Mr Mahomo ,Hunter Henry,TE,NE,ACTIVE
+Mr Mahomo ,Jaylen Warren,RB,PIT,ACTIVE
+Mr Mahomo ,Jauan Jennings,WR,SF,ACTIVE
+Mr Mahomo ,Brock Purdy,QB,SF,ACTIVE
+Mr Mahomo ,Giants D/ST,D/ST,NYG,NORMAL
+Renfrow v Wade,Derrick Henry,RB,BAL,ACTIVE
+Renfrow v Wade,Ladd McConkey,WR,LAC,ACTIVE
+Renfrow v Wade,Mike Evans,WR,TB,ACTIVE
+Renfrow v Wade,Patrick Mahomes,QB,KC,INJURY_RESERVE
+Renfrow v Wade,Javonte Williams,RB,DAL,INJURY_RESERVE
+Renfrow v Wade,Jake Ferguson,TE,DAL,ACTIVE
+Renfrow v Wade,Deebo Samuel,WR,WSH,ACTIVE
+Renfrow v Wade,George Pickens,WR,DAL,ACTIVE
+Renfrow v Wade,Travis Etienne Jr.,RB,JAX,ACTIVE
+Renfrow v Wade,Romeo Doubs,WR,GB,ACTIVE
+Renfrow v Wade,Zach Charbonnet,RB,SEA,INJURY_RESERVE
+Renfrow v Wade,Caleb Williams,QB,CHI,ACTIVE
+Renfrow v Wade,Troy Franklin,WR,DEN,QUESTIONABLE
+Renfrow v Wade,Michael Wilson,WR,ARI,ACTIVE
+Renfrow v Wade,Jake Bates,K,DET,ACTIVE
+Renfrow v Wade,Jake Tonges,TE,SF,QUESTIONABLE
+Renfrow v Wade,Jaguars D/ST,D/ST,JAX,NORMAL
+The Godfather,CeeDee Lamb,WR,DAL,ACTIVE
+The Godfather,Nico Collins,WR,HOU,ACTIVE
+The Godfather,Trey McBride,TE,ARI,ACTIVE
+The Godfather,Lamar Jackson,QB,BAL,ACTIVE
+The Godfather,Omarion Hampton,RB,LAC,ACTIVE
+The Godfather,Rashee Rice,WR,KC,INJURY_RESERVE
+The Godfather,Tetairoa McMillan,WR,CAR,ACTIVE
+The Godfather,Saquon Barkley,RB,PHI,ACTIVE
+The Godfather,Rico Dowdle,RB,CAR,ACTIVE
+The Godfather,Alec Pierce,WR,IND,ACTIVE
+The Godfather,Jameson Williams,WR,DET,ACTIVE
+The Godfather,Woody Marks,RB,HOU,ACTIVE
+The Godfather,Dak Prescott,QB,DAL,ACTIVE
+The Godfather,Ka'imi Fairbairn,K,HOU,ACTIVE
+The Godfather,Jared Goff,QB,DET,ACTIVE
+The Godfather,Lions D/ST,D/ST,DET,NORMAL
+The Godfather,Cam Little,K,JAX,ACTIVE
+Last-a-Minutemen,Jahmyr Gibbs,RB,DET,ACTIVE
+Last-a-Minutemen,Brian Thomas Jr.,WR,JAX,ACTIVE
+Last-a-Minutemen,Josh Jacobs,RB,GB,ACTIVE
+Last-a-Minutemen,Jaxon Smith-Njigba,WR,SEA,ACTIVE
+Last-a-Minutemen,Joe Burrow,QB,CIN,ACTIVE
+Last-a-Minutemen,Jaylen Waddle,WR,MIA,QUESTIONABLE
+Last-a-Minutemen,J.K. Dobbins,RB,DEN,INJURY_RESERVE
+Last-a-Minutemen,Brandon Aubrey,K,DAL,ACTIVE
+Last-a-Minutemen,Drake Maye,QB,NE,ACTIVE
+Last-a-Minutemen,Chris Olave,WR,NO,QUESTIONABLE
+Last-a-Minutemen,Stefon Diggs,WR,NE,ACTIVE
+Last-a-Minutemen,Broncos D/ST,D/ST,DEN,NORMAL
+Last-a-Minutemen,Dallas Goedert,TE,PHI,ACTIVE
+Last-a-Minutemen,Kareem Hunt,RB,KC,ACTIVE
+Last-a-Minutemen,49ers D/ST,D/ST,SF,NORMAL
+Last-a-Minutemen,Theo Johnson,TE,NYG,QUESTIONABLE
+Last-a-Minutemen,Tony Pollard,RB,TEN,ACTIVE

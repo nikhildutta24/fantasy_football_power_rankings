@@ -5,22 +5,65 @@ from sklearn.linear_model import LinearRegression
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-DATA_PATH = BASE_DIR / "data" / "raw" / "weekly_stats.csv"
+WEEKLY_STATS_PATH = BASE_DIR / "data" / "raw" / "weekly_stats.csv"
+INJURY_PATH = BASE_DIR / "data" / "raw" / "weekly_injuries.csv"
+fantasy_roster_path = BASE_DIR / "data" / "raw" / "fantasy_roster.csv"
 
-df = pd.read_csv(DATA_PATH)
-df = df.sort_values(["team", "week"])
+stats_df = pd.read_csv(WEEKLY_STATS_PATH)
+stats_df = stats_df.sort_values(["team", "week"])
 
+injuries_df = pd.read_csv(INJURY_PATH)
+injuries_df["POS"] = injuries_df["POS"].replace({"PK": "K"})
+
+roster_df = pd.read_csv(fantasy_roster_path)
+
+fantasy_positions = {"QB", "RB", "WR", "TE", "K"}
+injuries_df = injuries_df[injuries_df["POS"].isin(fantasy_positions)]
+
+# Aggregated by fantasy league team
+roster_injuries_df = roster_df.merge(
+    injuries_df,
+    how="left",
+    left_on="player_name",
+    right_on="NAME"
+)
+
+def injury_impact(status):
+    if pd.isna(status):
+        return 0
+    s = str(status).lower().replace("_", " ").strip()
+    if "injury reserve" in s or s == "ir":
+        return 1.0
+    elif s in {"questionable", "doubtful"}:
+        return 0.5
+    elif s == "probable":
+        return 0.25
+    else:
+        return 0
+
+
+
+roster_injuries_df["injury_impact"] = roster_injuries_df["injury_status"].apply(injury_impact)
+
+team_injury_impact = (
+    roster_injuries_df.groupby("team_name")["injury_impact"]
+    .sum()
+    .reset_index()
+    .rename(columns={"injury_impact": "total_injury_impact"})
+)
+
+print(team_injury_impact)
 
 #Recent Scoring
-df["rolling_avg"] = (
-    df.groupby("team")["points_for"]
+stats_df["rolling_avg"] = (
+    stats_df.groupby("team")["points_for"]
     .rolling(3)
     .mean()
     .reset_index(level=0, drop=True)
 )
 
-df["rolling_std"] = (
-    df.groupby("team")["points_for"]
+stats_df["rolling_std"] = (
+    stats_df.groupby("team")["points_for"]
     .rolling(3)
     .std()
     .reset_index(level=0, drop=True)
@@ -28,12 +71,12 @@ df["rolling_std"] = (
 
 #Strength of Schedule
 opp_def = (
-    df.groupby("team")["points_against"]
+    stats_df.groupby("team")["points_against"]
     .mean()
     .rename("opp_def_avg")
 )
 
-df = df.merge(
+stats_df = stats_df.merge(
     opp_def,
     left_on="opponent",
     right_index=True,
@@ -41,27 +84,27 @@ df = df.merge(
 )
 
 #Expected wins
-league_week_avg = df.groupby("week")["points_for"].transform("mean")
+league_week_avg = stats_df.groupby("week")["points_for"].transform("mean")
 
-df["expected_win"] = (df["points_for"] > league_week_avg).astype(int)
+stats_df["expected_win"] = (stats_df["points_for"] > league_week_avg).astype(int)
 
 # Season scoring
-df["season_avg"] = (
-    df.groupby("team")["points_for"]
+stats_df["season_avg"] = (
+    stats_df.groupby("team")["points_for"]
     .transform("mean")
 )
 
 # Point Differential
-df["point_diff"] = df["points_for"] - df["points_against"]
+stats_df["point_diff"] = stats_df["points_for"] - stats_df["points_against"]
 
-df["avg_point_diff"] = (
-    df.groupby("team")["point_diff"]
+stats_df["avg_point_diff"] = (
+    stats_df.groupby("team")["point_diff"]
     .transform("mean")
 )
 
 # Last Week Score
-df["last_week_score"] = (
-    df.groupby("team")["points_for"]
+stats_df["last_week_score"] = (
+    stats_df.groupby("team")["points_for"]
     .shift(1)
 )
 
@@ -69,7 +112,7 @@ df["last_week_score"] = (
 # ----------------------------
 # Build team-level stats
 # ----------------------------
-team_stats = df.groupby("team").agg(
+team_stats = stats_df.groupby("team").agg(
     recent_scoring=("rolling_avg", "mean"),
     consistency=("rolling_std", "mean"),
     sos=("opp_def_avg", "mean"),
@@ -82,6 +125,8 @@ team_stats = df.groupby("team").agg(
 
 # Luck
 team_stats["luck"] = team_stats["wins"] - team_stats["expected_wins"]
+
+
 
 # ----------------------------
 # Z-score normalization
@@ -104,11 +149,11 @@ for col in features:
 
 
 #Model learning section
-df["next_week_score"] = (
-    df.groupby("team")["points_for"].shift(-1)
+stats_df["next_week_score"] = (
+    stats_df.groupby("team")["points_for"].shift(-1)
 )
 
-model_df = df.dropna(subset=["next_week_score"]).copy()
+model_df = stats_df.dropna(subset=["next_week_score"]).copy()
 
 feature_cols = [
     "rolling_avg",
@@ -168,6 +213,7 @@ results_df = pd.concat(results, ignore_index=True)
 #Calculate correlation
 corr = results_df["predicted_score"].corr(results_df["actual_score"])
 print(f"Overall prediction correlation: {corr:.3f}")
+print(results_df.head(8))
 
 # ----------------------------
 # Final power score

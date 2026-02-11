@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 BASE_DIR = Path(__file__).resolve().parents[1]
 INJURY_CSV_PATH = BASE_DIR / "data" / "raw" / "weekly_injuries.csv"
 
+
 url = "https://www.espn.com/nfl/injuries"
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -44,7 +45,7 @@ injuries_df = injuries_df[injuries_df["STATUS"].isin(relevant_statuses)]
 
 injuries_df["POS"] = injuries_df["POS"].replace({
     "PK": "K"
-})
+}) 
         
 
 print(injuries_df.head())
@@ -52,3 +53,4 @@ print(f"Total injured fantasy players: {len(injuries_df)}")
 
 INJURY_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
 injuries_df.to_csv(INJURY_CSV_PATH, index=False)
+

@@ -1,6 +1,6 @@
 team_name,player_name,position,slot_position,pro_team,injury_status
 Fields Of Dreams,Ja'Marr Chase,WR,WR,CIN,ACTIVE
-Fields Of Dreams,Drake London,WR,RB/WR/TE,ATL,ACTIVE
+Fields Of Dreams,Drake London,WR,FLEX,ATL,ACTIVE
 Fields Of Dreams,A.J. Brown,WR,WR,PHI,ACTIVE
 Fields Of Dreams,Kyren Williams,RB,RB,LAR,ACTIVE
 Fields Of Dreams,James Cook III,RB,RB,BUF,ACTIVE
@@ -21,7 +21,7 @@ My Ball Zach Ertz,Courtland Sutton,WR,WR,DEN,ACTIVE
 My Ball Zach Ertz,DeVonta Smith,WR,WR,PHI,ACTIVE
 My Ball Zach Ertz,Quinshon Judkins,RB,BE,CLE,QUESTIONABLE
 My Ball Zach Ertz,Kenneth Walker III,RB,RB,SEA,ACTIVE
-My Ball Zach Ertz,TreVeyon Henderson,RB,RB/WR/TE,NE,ACTIVE
+My Ball Zach Ertz,TreVeyon Henderson,RB,FLEX,NE,ACTIVE
 My Ball Zach Ertz,Marvin Harrison Jr.,WR,BE,ARI,QUESTIONABLE
 My Ball Zach Ertz,De'Von Achane,RB,RB,MIA,ACTIVE
 My Ball Zach Ertz,Jakobi Meyers,WR,BE,JAX,ACTIVE
@@ -35,7 +35,7 @@ My Ball Zach Ertz,Zach Ertz,TE,BE,WSH,INJURY_RESERVE
  Duuvall Jags,Justin Jefferson,WR,WR,MIN,ACTIVE
  Duuvall Jags,Ashton Jeanty,RB,BE,LV,ACTIVE
  Duuvall Jags,Bucky Irving,RB,RB,TB,ACTIVE
- Duuvall Jags,Tee Higgins,WR,RB/WR/TE,CIN,ACTIVE
+ Duuvall Jags,Tee Higgins,WR,FLEX,CIN,ACTIVE
  Duuvall Jags,Jalen Hurts,QB,BE,PHI,ACTIVE
  Duuvall Jags,D'Andre Swift,RB,BE,CHI,ACTIVE
  Duuvall Jags,Michael Pittman Jr.,WR,BE,IND,ACTIVE
@@ -60,7 +60,7 @@ Koreatown  Chopsticks,Seahawks D/ST,D/ST,BE,SEA,NORMAL
 Koreatown  Chopsticks,Cameron Dicker,K,K,LAC,ACTIVE
 Koreatown  Chopsticks,Jaxson Dart,QB,QB,NYG,ACTIVE
 Koreatown  Chopsticks,Texans D/ST,D/ST,D/ST,HOU,NORMAL
-Koreatown  Chopsticks,RJ Harvey,RB,RB/WR/TE,DEN,ACTIVE
+Koreatown  Chopsticks,RJ Harvey,RB,FLEX,DEN,ACTIVE
 Koreatown  Chopsticks,Amon-Ra St. Brown,WR,WR,DET,ACTIVE
 Koreatown  Chopsticks,Tyrone Tracy Jr.,RB,BE,NYG,ACTIVE
 Koreatown  Chopsticks,Chris Godwin Jr.,WR,WR,TB,ACTIVE
@@ -70,7 +70,7 @@ Mr Mahomo ,Bijan Robinson,RB,RB,ATL,ACTIVE
 Mr Mahomo ,Puka Nacua,WR,WR,LAR,ACTIVE
 Mr Mahomo ,Brock Bowers,TE,BE,LV,INJURY_RESERVE
 Mr Mahomo ,Jayden Daniels,QB,IR,WSH,QUESTIONABLE
-Mr Mahomo ,Terry McLaurin,WR,RB/WR/TE,WSH,ACTIVE
+Mr Mahomo ,Terry McLaurin,WR,FLEX,WSH,ACTIVE
 Mr Mahomo ,Zay Flowers,WR,WR,BAL,ACTIVE
 Mr Mahomo ,Isiah Pacheco,RB,BE,KC,ACTIVE
 Mr Mahomo ,Bo Nix,QB,BE,DEN,QUESTIONABLE
@@ -87,7 +87,7 @@ Renfrow v Wade,Derrick Henry,RB,RB,BAL,ACTIVE
 Renfrow v Wade,Ladd McConkey,WR,BE,LAC,ACTIVE
 Renfrow v Wade,Mike Evans,WR,BE,TB,ACTIVE
 Renfrow v Wade,Patrick Mahomes,QB,IR,KC,QUESTIONABLE
-Renfrow v Wade,Javonte Williams,RB,RB/WR/TE,DAL,QUESTIONABLE
+Renfrow v Wade,Javonte Williams,RB,FLEX,DAL,QUESTIONABLE
 Renfrow v Wade,Jake Ferguson,TE,BE,DAL,ACTIVE
 Renfrow v Wade,Deebo Samuel,WR,BE,WSH,ACTIVE
 Renfrow v Wade,George Pickens,WR,WR,DAL,ACTIVE
@@ -110,7 +110,7 @@ The Godfather,Tetairoa McMillan,WR,BE,CAR,ACTIVE
 The Godfather,Saquon Barkley,RB,RB,PHI,ACTIVE
 The Godfather,Rico Dowdle,RB,BE,CAR,ACTIVE
 The Godfather,Alec Pierce,WR,BE,IND,ACTIVE
-The Godfather,Jameson Williams,WR,RB/WR/TE,DET,ACTIVE
+The Godfather,Jameson Williams,WR,FLEX,DET,ACTIVE
 The Godfather,Woody Marks,RB,BE,HOU,ACTIVE
 The Godfather,Dak Prescott,QB,QB,DAL,ACTIVE
 The Godfather,Ka'imi Fairbairn,K,K,HOU,ACTIVE
@@ -122,7 +122,7 @@ Last-a-Minutemen,Brian Thomas Jr.,WR,BE,JAX,ACTIVE
 Last-a-Minutemen,Josh Jacobs,RB,RB,GB,ACTIVE
 Last-a-Minutemen,Jaxon Smith-Njigba,WR,WR,SEA,ACTIVE
 Last-a-Minutemen,Joe Burrow,QB,BE,CIN,ACTIVE
-Last-a-Minutemen,Jaylen Waddle,WR,RB/WR/TE,MIA,QUESTIONABLE
+Last-a-Minutemen,Jaylen Waddle,WR,FLEX,MIA,QUESTIONABLE
 Last-a-Minutemen,J.K. Dobbins,RB,IR,DEN,QUESTIONABLE
 Last-a-Minutemen,Brandon Aubrey,K,K,DAL,ACTIVE
 Last-a-Minutemen,Drake Maye,QB,QB,NE,ACTIVE

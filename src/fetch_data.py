@@ -84,6 +84,9 @@ for team in league.teams:
         })
         
 fantasy_roster = pd.DataFrame(roster)
+
+fantasy_roster["slot_position"] = fantasy_roster["slot_position"].replace({"RB/WR/TE": "FLEX"})
+
 os.makedirs("data/raw", exist_ok=True)
 fantasy_roster.to_csv("data/raw/fantasy_roster.csv", index=False)
 

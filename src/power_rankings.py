@@ -30,29 +30,47 @@ roster_injuries_df = roster_df.merge(
     right_on="NAME"
 )
 
-def injury_impact(status):
-    if pd.isna(status):
-        return 0
-    s = str(status).lower().replace("_", " ").strip()
-    if "injury reserve" in s or s == "ir":
-        return 1.0
-    elif s in {"questionable", "doubtful"}:
-        return 0.5
-    elif s == "probable":
-        return 0.25
-    else:
-        return 0
-
-
-
-roster_injuries_df["injury_impact"] = roster_injuries_df["STATUS"].apply(injury_impact)
-
+#Injury weighting and slot eval
 team_injury_impact = (
     roster_injuries_df.groupby("team_name")["injury_impact"]
     .sum()
     .reset_index()
     .rename(columns={"injury_impact": "total_injury_impact"})
 )
+
+POSITION_WEIGHTS = {
+    "QB": 3.0,
+    "RB": 2.5,
+    "WR": 2.0,
+    "TE": 1.5,
+    "K": 1.0
+}
+
+def injury_impact(row):
+    status = row["STATUS"]
+    position = row["position"]
+    is_starter = row["slot_position"] not in {"BE", "IR"}
+    
+    if pd.isna(status):
+        return 0
+    
+    s = str(status).lower().replace("_", " ").strip()
+    
+    if "injured reserve" in s or s == "ir":
+        base = 1.0
+    elif s == "doubtful":
+        base = 0.5
+    elif s in {"questionable", "probable"}:
+        return 0.25
+    else:
+        return 0
+    
+    pos_weight = POSITION_WEIGHTS.get(position, 1.0)
+    starter_mult = 1.0 if is_starter else 0.25
+    
+    return base * pos_weight * starter_mult
+
+roster_injuries_df["injury_impact"] = roster_injuries_df.apply(injury_impact, axis=1)
 
 
 #Recent Scoring
@@ -257,20 +275,26 @@ print(team_stats[[
 # Dynamic Power Score weights
 z_features = [f"z_{col}" for col in features]
 
-team_next_week_points = stats_df.groupby("team")["points_for"].mean()
+walk_forward_merged = results_df.merge(
+    team_stats[z_features],
+    left_on="team",
+    right_index=True,
+    how="inner"
+)
 
-X = team_stats[z_features]
-Y = team_next_week_points.reindex(X.index)
+X_wf = walk_forward_merged[z_features]
+Y_wf = walk_forward_merged["actual_score"]
 
 reg = LinearRegression()
-reg.fit(X, Y)
+reg.fit(X_wf, Y_wf)
 
 weights = pd.Series(reg.coef_, index=z_features)
 print(weights.sort_values(ascending=False))
 
 print("Learned dynamic weights:\n", weights)
 
-team_stats["dynamic_power_score"] = X @ weights
+team_stats["dynamic_power_score"] = team_stats[z_features] @ weights
+
 team_stats["dynamic_power_score_z"] = (
     (team_stats["dynamic_power_score"] - team_stats["dynamic_power_score"].mean())
     / team_stats["dynamic_power_score"].std()

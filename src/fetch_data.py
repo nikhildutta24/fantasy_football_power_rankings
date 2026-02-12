@@ -70,6 +70,7 @@ print(df.head())
 print(f"\nTotal rows: {len(df)}")
 
 roster = []
+
 for team in league.teams:
     team_name = team.team_name
     for player in team.roster:
@@ -77,6 +78,7 @@ for team in league.teams:
             "team_name": team_name,
             "player_name": player.name,
             "position": player.position,
+            "slot_position": player.lineupSlot,
             "pro_team": player.proTeam,
             "injury_status": player.injuryStatus,
         })

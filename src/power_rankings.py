@@ -1,8 +1,7 @@
 from pathlib import Path
 import pandas as pd
 from sklearn.linear_model import LinearRegression
-
-
+import matplotlib.pyplot as plt
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 WEEKLY_STATS_PATH = BASE_DIR / "data" / "raw" / "weekly_stats.csv"
@@ -11,6 +10,9 @@ fantasy_roster_path = BASE_DIR / "data" / "raw" / "fantasy_roster.csv"
 
 stats_df = pd.read_csv(WEEKLY_STATS_PATH)
 stats_df = stats_df.sort_values(["team", "week"])
+stats_df["team"] = stats_df["team"].str.lstrip()
+stats_df["team"] = stats_df["team"].str.replace(r"\s+", " ", regex=True)
+
 
 injuries_df = pd.read_csv(INJURY_PATH)
 injuries_df["POS"] = injuries_df["POS"].replace({"PK": "K"})
@@ -52,7 +54,6 @@ team_injury_impact = (
     .rename(columns={"injury_impact": "total_injury_impact"})
 )
 
-print(team_injury_impact)
 
 #Recent Scoring
 stats_df["rolling_avg"] = (
@@ -126,6 +127,16 @@ team_stats = stats_df.groupby("team").agg(
 # Luck
 team_stats["luck"] = team_stats["wins"] - team_stats["expected_wins"]
 
+#Merge injury impact into team_stats
+team_stats = team_stats.merge(
+    team_injury_impact,
+    left_index=True,
+    right_on="team_name",
+    how="left"
+)
+
+team_stats = team_stats.set_index("team_name")
+team_stats["total_injury_impact"] = team_stats["total_injury_impact"].fillna(0)
 
 
 # ----------------------------
@@ -138,7 +149,8 @@ features = [
     "luck",
     "season_avg",
     "avg_point_diff",
-    "last_week_score"
+    "last_week_score",
+    "total_injury_impact"
 ]
 
 for col in features:
@@ -210,10 +222,11 @@ for week in weeks:
     
 #Combine predictions
 results_df = pd.concat(results, ignore_index=True)
+results_df["diff"] = abs(results_df["predicted_score"] - results_df["actual_score"])
 #Calculate correlation
 corr = results_df["predicted_score"].corr(results_df["actual_score"])
 print(f"Overall prediction correlation: {corr:.3f}")
-print(results_df.head(8))
+print(results_df.head(100))
 
 # ----------------------------
 # Final power score
@@ -226,4 +239,12 @@ team_stats["power_score"] = (
     + 0.05 * team_stats["z_last_week_score"]
     + 0.05 * team_stats["z_luck"]
     - 0.10 * team_stats["z_consistency"]
+    - 0.10 * team_stats["z_total_injury_impact"]
 )
+
+
+team_stats = team_stats.sort_values("power_score",ascending=False)
+print("\nFinal Power Rankings:")
+print(team_stats[[
+    "power_score"
+]])

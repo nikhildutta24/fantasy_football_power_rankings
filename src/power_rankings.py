@@ -45,7 +45,7 @@ def injury_impact(status):
 
 
 
-roster_injuries_df["injury_impact"] = roster_injuries_df["injury_status"].apply(injury_impact)
+roster_injuries_df["injury_impact"] = roster_injuries_df["STATUS"].apply(injury_impact)
 
 team_injury_impact = (
     roster_injuries_df.groupby("team_name")["injury_impact"]
@@ -221,12 +221,15 @@ for week in weeks:
     results.append(week_results)
     
 #Combine predictions
-results_df = pd.concat(results, ignore_index=True)
-results_df["diff"] = abs(results_df["predicted_score"] - results_df["actual_score"])
-#Calculate correlation
-corr = results_df["predicted_score"].corr(results_df["actual_score"])
-print(f"Overall prediction correlation: {corr:.3f}")
-print(results_df.head(100))
+if not results:
+    print("No week had enough data to train/test the predictive model.")
+else:
+    results_df = pd.concat(results, ignore_index=True)
+    results_df["diff"] = abs(results_df["predicted_score"] - results_df["actual_score"])
+    #Calculate correlation
+    corr = results_df["predicted_score"].corr(results_df["actual_score"])
+    print(f"Overall prediction correlation: {corr:.3f}")
+    print(results_df.head(20))
 
 # ----------------------------
 # Final power score
@@ -248,3 +251,32 @@ print("\nFinal Power Rankings:")
 print(team_stats[[
     "power_score"
 ]])
+
+
+
+# Dynamic Power Score weights
+z_features = [f"z_{col}" for col in features]
+
+team_next_week_points = stats_df.groupby("team")["points_for"].mean()
+
+X = team_stats[z_features]
+Y = team_next_week_points.reindex(X.index)
+
+reg = LinearRegression()
+reg.fit(X, Y)
+
+weights = pd.Series(reg.coef_, index=z_features)
+print(weights.sort_values(ascending=False))
+
+print("Learned dynamic weights:\n", weights)
+
+team_stats["dynamic_power_score"] = X @ weights
+team_stats["dynamic_power_score_z"] = (
+    (team_stats["dynamic_power_score"] - team_stats["dynamic_power_score"].mean())
+    / team_stats["dynamic_power_score"].std()
+)
+
+
+team_stats = team_stats.sort_values("dynamic_power_score_z", ascending=False)
+print("Dynamic Power Rankings:")
+print(team_stats[["dynamic_power_score_z"]])

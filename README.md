@@ -70,5 +70,50 @@ python power_rankings.py
 
 ---
 
+## How It Works
 
+### Static Power Score
 
+A weighted combination of z-scored features:
+
+| Feature | Weight | Description |
+|---|---|---|
+| Recent Scoring (3-week rolling avg) | +0.30 | How hot a team is right now |
+| Season Average | +0.25 | Overall scoring baseline |
+| Avg Point Differential | +0.20 | Margin of victory/defeat |
+| Strength of Schedule | +0.15 | Quality of opponents faced |
+| Last Week Score | +0.05 | Most recent performance |
+| Luck | +0.05 | Actual wins minus expected wins |
+| Consistency (std dev penalty) | -0.10 | Penalizes high variance scoring |
+| Injury Impact | -0.10 | Penalizes teams with injured players |
+
+### Dynamic Power Score
+
+Weights are learned automatically via linear regression trained on walk-forward out-of-sample predictions, so the model reflects
+what features actually predict future scoring rather than relying on hand-tuned and manually decided values.
+
+### Injury Impact Scoring
+
+Each injured player contributes a score based on their status, position, and whether they are a starter:
+
+- **Status**: IR = 1.0, Doubtful = 0.5, Questionable/Probable = 0.25
+- **Position multiplier**: QB = 3.0x, RB = 2.5x, WR = 2.0x, TE = 1.5x, K = 1.0x
+- **Starter multiplier**: Starters = 1.0x, Bench = 0.25x
+
+---
+
+## Requirements
+
+- Python 3.8+
+- A private or public ESPN Fantasy Footbal League
+- ESPN account credentials (private leagues only)
+
+---
+
+## Future Enhancements
+
+- Weekly matchup predictions with win probabilities
+- Roster optimization suggestions (start/sit recommendations)
+- Player-level projections integration
+- Automated weekly report generation
+- Scoring data visualizations

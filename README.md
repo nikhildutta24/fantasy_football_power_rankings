@@ -32,6 +32,7 @@ A Python-based analytics tool that generates data-driven power rankings for ESPN
 ```bash
 git clone https://github.comyourusername/fantasy-power-rankings.git
 cd fantasy-power-rankings
+```
 
 ### 2. Installdependencies
 ```bash
@@ -67,3 +68,4 @@ python power_rankings.py
 ```
 
 ---
+

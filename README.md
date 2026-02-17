@@ -20,9 +20,10 @@ A Python-based analytics tool that generates data-driven power rankings for ESPN
 │       ├── weekly_stats.csv       # Per-team, per-week results
 │       ├── fantasy_roster.csv     # Current rosters with slot positions
 │       └── weekly_injuries.csv    # Scraped NFL injury report
-├── fetch_data.py                  # Pulls league data from ESPN API
-├── fetch_injuries.py              # Scrapes injury report from ESPN
-├── power_rankings.py              # Computes and outputs power rankings
+├── src/
+│   └── fetch_data.py              # Pulls league data from ESPN API
+│   └── fetch_injuries.py          # Scrapes injury report from ESPN
+│   └── power_rankings.py          # Computes and outputs power rankings
 ├── .env                           # Local credentials (not committed)
 └── README.md
 ```

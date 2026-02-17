@@ -2,6 +2,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
+import numpy as np
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 WEEKLY_STATS_PATH = BASE_DIR / "data" / "raw" / "weekly_stats.csv"
@@ -28,14 +29,6 @@ roster_injuries_df = roster_df.merge(
     how="left",
     left_on="player_name",
     right_on="NAME"
-)
-
-#Injury weighting and slot eval
-team_injury_impact = (
-    roster_injuries_df.groupby("team_name")["injury_impact"]
-    .sum()
-    .reset_index()
-    .rename(columns={"injury_impact": "total_injury_impact"})
 )
 
 POSITION_WEIGHTS = {
@@ -72,6 +65,13 @@ def injury_impact(row):
 
 roster_injuries_df["injury_impact"] = roster_injuries_df.apply(injury_impact, axis=1)
 
+#Injury weighting and slot eval
+team_injury_impact = (
+    roster_injuries_df.groupby("team_name")["injury_impact"]
+    .sum()
+    .reset_index()
+    .rename(columns={"injury_impact": "total_injury_impact"})
+)
 
 #Recent Scoring
 stats_df["rolling_avg"] = (
@@ -248,6 +248,25 @@ else:
     corr = results_df["predicted_score"].corr(results_df["actual_score"])
     print(f"Overall prediction correlation: {corr:.3f}")
     print(results_df.head(20))
+
+
+## Model Performance Vis
+fig, ax = plt.subplots(figsize=(8,8))
+ax.scatter(results_df["actual_score"], results_df["predicted_score"])
+min_val = min(results_df["actual_score"].min(), results_df["predicted_score"].min())
+max_val = max(results_df["actual_score"].max(), results_df["predicted_score"].max())
+ax.plot([min_val, max_val], [min_val, max_val], "r--", linewidth=1.5, label ="Perfect Prediction")
+
+ax.set_xlabel("Actual Score")
+ax.set_ylabel("Predicted Score")
+ax.set_title("Predicted vs Acutal Scores (Walk-Forward Model)")
+ax.legend()
+ax.text(0.05, 0.95, f"r = {corr:.3f}", transform=ax.transAxes, fontsize=12, verticalalignment="top")
+
+
+plt.tight_layout()
+plt.savefig("predicted_vs_actual.png", dpi=150)
+plt.show()
 
 # ----------------------------
 # Final power score

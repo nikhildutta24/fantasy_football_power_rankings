@@ -7,7 +7,8 @@ A Python-based analytics tool that generates data-driven power rankings for ESPN
 - **Automated data fetching** from ESPN's private league API
 - **Injury-aware rankings** with position-weighted adn starter/bench-aware impact scoring
 - **Walk-forward predictive model** using linear regression trained on past weeks to avoid lookahead bias
-- **Two Ranking Systems**: a hand-tuned static power scoreand a data-learned dynamic power score (further fine-tuning in progress to optimize data-learned model and ultimately phase out the hand-tuned model)
+- **Two Ranking Systems**: a hand-tuned static power scoreand a data-learned dynamic power score
+-   (further fine-tuning in progress to optimize data-learned model and ultimately phase out the hand-tuned model)
 - **Luck metric** comparing actual wins to expected wins based on league-wide scoring each week
 
 ---
@@ -68,4 +69,5 @@ python power_rankings.py
 ```
 
 ---
+
 

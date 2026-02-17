@@ -11,13 +11,16 @@ year = int(os.getenv("YEAR"))
 espn_s2 = os.getenv("ESPN_S2")
 swid = os.getenv("ESPN_SWID")
 
+league_kwargs = {
+    "league_id": league_id,
+    "year": year,
+}
 
-league = League(
-    league_id=league_id,
-    year=year,
-    espn_s2=espn_s2,
-    swid=swid
-)
+if espn_s2 and swid:
+    league_kwargs["espn_s2"] = espn_s2
+    league_kwargs["swid"] = swid
+
+league = League(**league_kwargs)
 
 
 rows = []

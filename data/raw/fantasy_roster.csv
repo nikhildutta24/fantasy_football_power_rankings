@@ -1,136 +1,129 @@
-team_name,player_name,position,slot_position,pro_team,injury_status
-Fields Of Dreams,Ja'Marr Chase,WR,WR,CIN,ACTIVE
-Fields Of Dreams,Drake London,WR,FLEX,ATL,ACTIVE
-Fields Of Dreams,A.J. Brown,WR,WR,PHI,ACTIVE
-Fields Of Dreams,Kyren Williams,RB,RB,LAR,ACTIVE
-Fields Of Dreams,James Cook III,RB,RB,BUF,ACTIVE
-Fields Of Dreams,Breece Hall,RB,BE,NYJ,QUESTIONABLE
-Fields Of Dreams,Aaron Jones Sr.,RB,BE,MIN,QUESTIONABLE
-Fields Of Dreams,Travis Kelce,TE,BE,KC,ACTIVE
-Fields Of Dreams,Baker Mayfield,QB,BE,TB,ACTIVE
-Fields Of Dreams,Rome Odunze,WR,IR,CHI,ACTIVE
-Fields Of Dreams,David Montgomery,RB,BE,DET,ACTIVE
-Fields Of Dreams,Jordan Addison,WR,BE,MIN,ACTIVE
-Fields Of Dreams,Chase McLaughlin,K,K,TB,ACTIVE
-Fields Of Dreams,Trevor Lawrence,QB,QB,JAX,ACTIVE
-Fields Of Dreams,Steelers D/ST,D/ST,D/ST,PIT,NORMAL
-Fields Of Dreams,AJ Barner,TE,TE,SEA,ACTIVE
-Fields Of Dreams,Ricky Pearsall,WR,BE,SF,ACTIVE
-My Ball Zach Ertz,Josh Allen,QB,QB,BUF,QUESTIONABLE
-My Ball Zach Ertz,Courtland Sutton,WR,WR,DEN,ACTIVE
-My Ball Zach Ertz,DeVonta Smith,WR,WR,PHI,ACTIVE
-My Ball Zach Ertz,Quinshon Judkins,RB,BE,CLE,QUESTIONABLE
-My Ball Zach Ertz,Kenneth Walker III,RB,RB,SEA,ACTIVE
-My Ball Zach Ertz,TreVeyon Henderson,RB,FLEX,NE,ACTIVE
-My Ball Zach Ertz,Marvin Harrison Jr.,WR,BE,ARI,QUESTIONABLE
-My Ball Zach Ertz,De'Von Achane,RB,RB,MIA,ACTIVE
-My Ball Zach Ertz,Jakobi Meyers,WR,BE,JAX,ACTIVE
-My Ball Zach Ertz,Jordan Love,QB,BE,GB,ACTIVE
-My Ball Zach Ertz,Dalton Schultz,TE,TE,HOU,QUESTIONABLE
-My Ball Zach Ertz,Patriots D/ST,D/ST,D/ST,NE,NORMAL
-My Ball Zach Ertz,Bills D/ST,D/ST,BE,BUF,NORMAL
-My Ball Zach Ertz,Andy Borregales,K,K,NE,ACTIVE
-My Ball Zach Ertz,Jayden Reed,WR,BE,GB,ACTIVE
-My Ball Zach Ertz,Zach Ertz,TE,BE,WSH,INJURY_RESERVE
- Duuvall Jags,Justin Jefferson,WR,WR,MIN,ACTIVE
- Duuvall Jags,Ashton Jeanty,RB,BE,LV,ACTIVE
- Duuvall Jags,Bucky Irving,RB,RB,TB,ACTIVE
- Duuvall Jags,Tee Higgins,WR,FLEX,CIN,ACTIVE
- Duuvall Jags,Jalen Hurts,QB,BE,PHI,ACTIVE
- Duuvall Jags,D'Andre Swift,RB,BE,CHI,ACTIVE
- Duuvall Jags,Michael Pittman Jr.,WR,BE,IND,ACTIVE
- Duuvall Jags,Chase Brown,RB,RB,CIN,ACTIVE
- Duuvall Jags,Wan'Dale Robinson,WR,IR,NYG,INJURY_RESERVE
- Duuvall Jags,Kyle Pitts Sr.,TE,TE,ATL,ACTIVE
- Duuvall Jags,Matthew Stafford,QB,QB,LAR,ACTIVE
- Duuvall Jags,Jason Myers,K,K,SEA,ACTIVE
- Duuvall Jags,Christian Watson,WR,BE,GB,ACTIVE
- Duuvall Jags,Harold Fannin Jr.,TE,IR,CLE,QUESTIONABLE
- Duuvall Jags,Saints D/ST,D/ST,D/ST,NO,NORMAL
- Duuvall Jags,Darnell Mooney,WR,BE,ATL,ACTIVE
- Duuvall Jags,Parker Washington,WR,WR,JAX,ACTIVE
-Koreatown  Chopsticks,Christian McCaffrey,RB,RB,SF,ACTIVE
-Koreatown  Chopsticks,Jonathan Taylor,RB,RB,IND,ACTIVE
-Koreatown  Chopsticks,Davante Adams,WR,IR,LAR,ACTIVE
-Koreatown  Chopsticks,DK Metcalf,WR,BE,PIT,ACTIVE
-Koreatown  Chopsticks,Emeka Egbuka,WR,BE,TB,ACTIVE
-Koreatown  Chopsticks,Tyler Warren,TE,TE,IND,ACTIVE
-Koreatown  Chopsticks,Tyler Bass,K,IR,BUF,QUESTIONABLE
-Koreatown  Chopsticks,Seahawks D/ST,D/ST,BE,SEA,NORMAL
-Koreatown  Chopsticks,Cameron Dicker,K,K,LAC,ACTIVE
-Koreatown  Chopsticks,Jaxson Dart,QB,QB,NYG,ACTIVE
-Koreatown  Chopsticks,Texans D/ST,D/ST,D/ST,HOU,NORMAL
-Koreatown  Chopsticks,RJ Harvey,RB,FLEX,DEN,ACTIVE
-Koreatown  Chopsticks,Amon-Ra St. Brown,WR,WR,DET,ACTIVE
-Koreatown  Chopsticks,Tyrone Tracy Jr.,RB,BE,NYG,ACTIVE
-Koreatown  Chopsticks,Chris Godwin Jr.,WR,WR,TB,ACTIVE
-Koreatown  Chopsticks,Colby Parkinson,TE,BE,LAR,ACTIVE
-Koreatown  Chopsticks,Robert Woods,WR,BE,None,ACTIVE
-Mr Mahomo ,Bijan Robinson,RB,RB,ATL,ACTIVE
-Mr Mahomo ,Puka Nacua,WR,WR,LAR,ACTIVE
-Mr Mahomo ,Brock Bowers,TE,BE,LV,INJURY_RESERVE
-Mr Mahomo ,Jayden Daniels,QB,IR,WSH,QUESTIONABLE
-Mr Mahomo ,Terry McLaurin,WR,FLEX,WSH,ACTIVE
-Mr Mahomo ,Zay Flowers,WR,WR,BAL,ACTIVE
-Mr Mahomo ,Isiah Pacheco,RB,BE,KC,ACTIVE
-Mr Mahomo ,Bo Nix,QB,BE,DEN,QUESTIONABLE
-Mr Mahomo ,Rhamondre Stevenson,RB,BE,NE,ACTIVE
-Mr Mahomo ,Kenneth Gainwell,RB,RB,PIT,ACTIVE
-Mr Mahomo ,Khalil Shakir,WR,BE,BUF,ACTIVE
-Mr Mahomo ,Chris Boswell,K,K,PIT,ACTIVE
-Mr Mahomo ,Hunter Henry,TE,TE,NE,ACTIVE
-Mr Mahomo ,Jaylen Warren,RB,BE,PIT,ACTIVE
-Mr Mahomo ,Jauan Jennings,WR,BE,SF,ACTIVE
-Mr Mahomo ,Brock Purdy,QB,QB,SF,ACTIVE
-Mr Mahomo ,Giants D/ST,D/ST,D/ST,NYG,NORMAL
-Renfrow v Wade,Derrick Henry,RB,RB,BAL,ACTIVE
-Renfrow v Wade,Ladd McConkey,WR,BE,LAC,ACTIVE
-Renfrow v Wade,Mike Evans,WR,BE,TB,ACTIVE
-Renfrow v Wade,Patrick Mahomes,QB,IR,KC,QUESTIONABLE
-Renfrow v Wade,Javonte Williams,RB,FLEX,DAL,QUESTIONABLE
-Renfrow v Wade,Jake Ferguson,TE,BE,DAL,ACTIVE
-Renfrow v Wade,Deebo Samuel,WR,BE,WSH,ACTIVE
-Renfrow v Wade,George Pickens,WR,WR,DAL,ACTIVE
-Renfrow v Wade,Travis Etienne Jr.,RB,RB,JAX,ACTIVE
-Renfrow v Wade,Romeo Doubs,WR,BE,GB,ACTIVE
-Renfrow v Wade,Zach Charbonnet,RB,BE,SEA,INJURY_RESERVE
-Renfrow v Wade,Caleb Williams,QB,QB,CHI,ACTIVE
-Renfrow v Wade,Troy Franklin,WR,BE,DEN,QUESTIONABLE
-Renfrow v Wade,Michael Wilson,WR,WR,ARI,ACTIVE
-Renfrow v Wade,Jake Bates,K,K,DET,ACTIVE
-Renfrow v Wade,Jake Tonges,TE,TE,SF,QUESTIONABLE
-Renfrow v Wade,Jaguars D/ST,D/ST,D/ST,JAX,NORMAL
-The Godfather,CeeDee Lamb,WR,WR,DAL,ACTIVE
-The Godfather,Nico Collins,WR,WR,HOU,ACTIVE
-The Godfather,Trey McBride,TE,TE,ARI,ACTIVE
-The Godfather,Lamar Jackson,QB,BE,BAL,ACTIVE
-The Godfather,Omarion Hampton,RB,RB,LAC,ACTIVE
-The Godfather,Rashee Rice,WR,IR,KC,QUESTIONABLE
-The Godfather,Tetairoa McMillan,WR,BE,CAR,ACTIVE
-The Godfather,Saquon Barkley,RB,RB,PHI,ACTIVE
-The Godfather,Rico Dowdle,RB,BE,CAR,ACTIVE
-The Godfather,Alec Pierce,WR,BE,IND,ACTIVE
-The Godfather,Jameson Williams,WR,FLEX,DET,ACTIVE
-The Godfather,Woody Marks,RB,BE,HOU,ACTIVE
-The Godfather,Dak Prescott,QB,QB,DAL,ACTIVE
-The Godfather,Ka'imi Fairbairn,K,K,HOU,ACTIVE
-The Godfather,Jared Goff,QB,BE,DET,ACTIVE
-The Godfather,Lions D/ST,D/ST,D/ST,DET,NORMAL
-The Godfather,Cam Little,K,BE,JAX,ACTIVE
-Last-a-Minutemen,Jahmyr Gibbs,RB,RB,DET,ACTIVE
-Last-a-Minutemen,Brian Thomas Jr.,WR,BE,JAX,ACTIVE
-Last-a-Minutemen,Josh Jacobs,RB,RB,GB,ACTIVE
-Last-a-Minutemen,Jaxon Smith-Njigba,WR,WR,SEA,ACTIVE
-Last-a-Minutemen,Joe Burrow,QB,BE,CIN,ACTIVE
-Last-a-Minutemen,Jaylen Waddle,WR,FLEX,MIA,QUESTIONABLE
-Last-a-Minutemen,J.K. Dobbins,RB,IR,DEN,QUESTIONABLE
-Last-a-Minutemen,Brandon Aubrey,K,K,DAL,ACTIVE
-Last-a-Minutemen,Drake Maye,QB,QB,NE,ACTIVE
-Last-a-Minutemen,Chris Olave,WR,WR,NO,QUESTIONABLE
-Last-a-Minutemen,Stefon Diggs,WR,BE,NE,ACTIVE
-Last-a-Minutemen,Broncos D/ST,D/ST,D/ST,DEN,NORMAL
-Last-a-Minutemen,Dallas Goedert,TE,TE,PHI,ACTIVE
-Last-a-Minutemen,Kareem Hunt,RB,BE,KC,ACTIVE
-Last-a-Minutemen,49ers D/ST,D/ST,BE,SF,NORMAL
-Last-a-Minutemen,Theo Johnson,TE,BE,NYG,QUESTIONABLE
-Last-a-Minutemen,Tony Pollard,RB,BE,TEN,ACTIVE
+team_name,player_name,position,slot_position,pro_team,injury_status,projected_total_points,slot_weight,weighted_projection
+Fields Of Dreams,Ja'Marr Chase,WR,WR,CIN,QUESTIONABLE,336.95,1.0,336.95
+Fields Of Dreams,Ashton Jeanty,RB,RB,LV,QUESTIONABLE,278.89,1.0,278.89
+Fields Of Dreams,Drake London,WR,WR,ATL,ACTIVE,269.46,1.0,269.46
+Fields Of Dreams,Malik Nabers,WR,FLEX,NYG,QUESTIONABLE,243.89,1.0,243.89
+Fields Of Dreams,Breece Hall,RB,RB,NYJ,QUESTIONABLE,274.14,1.0,274.14
+Fields Of Dreams,D'Andre Swift,RB,BE,CHI,QUESTIONABLE,209.94,0.1,20.99
+Fields Of Dreams,Jaylen Waddle,WR,BE,DEN,ACTIVE,213.04,0.1,21.3
+Fields Of Dreams,David Montgomery,RB,BE,HOU,ACTIVE,199.68,0.1,19.97
+Fields Of Dreams,Caleb Williams,QB,QB,CHI,ACTIVE,281.04,1.0,281.04
+Fields Of Dreams,Tucker Kraft,TE,TE,GB,QUESTIONABLE,172.03,1.0,172.03
+Fields Of Dreams,Brian Thomas Jr.,WR,BE,JAX,ACTIVE,176.66,0.1,17.67
+Fields Of Dreams,J.K. Dobbins,RB,BE,DEN,ACTIVE,174.78,0.1,17.48
+Fields Of Dreams,Quentin Johnston,WR,BE,LAC,ACTIVE,165.4,0.1,16.54
+Fields Of Dreams,Matthew Stafford,QB,BE,LAR,ACTIVE,292.84,0.1,29.28
+Fields Of Dreams,Ka'imi Fairbairn,K,K,HOU,ACTIVE,157.77,1.0,157.77
+Fields Of Dreams,Chargers D/ST,D/ST,D/ST,LAC,NORMAL,94.48,1.0,94.48
+My Ball Zach Ertz,Jaxon Smith-Njigba,WR,WR,SEA,ACTIVE,326.66,1.0,326.66
+My Ball Zach Ertz,James Cook III,RB,RB,BUF,ACTIVE,279.99,1.0,279.99
+My Ball Zach Ertz,George Pickens,WR,FLEX,DAL,ACTIVE,239.25,1.0,239.25
+My Ball Zach Ertz,Kyren Williams,RB,RB,LAR,ACTIVE,232.01,1.0,232.01
+My Ball Zach Ertz,Tetairoa McMillan,WR,WR,CAR,ACTIVE,235.93,1.0,235.93
+My Ball Zach Ertz,Drake Maye,QB,QB,NE,ACTIVE,319.76,1.0,319.76
+My Ball Zach Ertz,Carnell Tate,WR,BE,TEN,QUESTIONABLE,202.24,0.1,20.22
+My Ball Zach Ertz,Harold Fannin Jr.,TE,TE,CLE,ACTIVE,188.87,1.0,188.87
+My Ball Zach Ertz,Jaylen Warren,RB,BE,PIT,ACTIVE,193.96,0.1,19.4
+My Ball Zach Ertz,Michael Pittman Jr.,WR,BE,PIT,QUESTIONABLE,197.17,0.1,19.72
+My Ball Zach Ertz,Kenny Gainwell,RB,BE,TB,ACTIVE,177.66,0.1,17.77
+My Ball Zach Ertz,Texans D/ST,D/ST,BE,HOU,NORMAL,129.06,0.1,12.91
+My Ball Zach Ertz,Wan'Dale Robinson,WR,BE,TEN,QUESTIONABLE,174.85,0.1,17.48
+My Ball Zach Ertz,Tyler Loop,K,K,BAL,ACTIVE,145.93,1.0,145.93
+My Ball Zach Ertz,Bo Nix,QB,BE,DEN,ACTIVE,295.73,0.1,29.57
+My Ball Zach Ertz,Jaguars D/ST,D/ST,D/ST,JAX,NORMAL,77.01,1.0,77.01
+ Duuvall Jags,Jonathan Taylor,RB,RB,IND,ACTIVE,315.89,1.0,315.89
+ Duuvall Jags,CeeDee Lamb,WR,WR,DAL,ACTIVE,293.63,1.0,293.63
+ Duuvall Jags,Jeremiyah Love,RB,RB,ARI,QUESTIONABLE,276.52,1.0,276.52
+ Duuvall Jags,Nico Collins,WR,WR,HOU,ACTIVE,248.22,1.0,248.22
+ Duuvall Jags,Colston Loveland,TE,TE,CHI,ACTIVE,206.62,1.0,206.62
+ Duuvall Jags,Lamar Jackson,QB,QB,BAL,ACTIVE,322.51,1.0,322.51
+ Duuvall Jags,Jadarian Price,RB,FLEX,SEA,ACTIVE,194.06,1.0,194.06
+ Duuvall Jags,Jameson Williams,WR,BE,DET,ACTIVE,208.32,0.1,20.83
+ Duuvall Jags,TreVeyon Henderson,RB,BE,NE,QUESTIONABLE,187.5,0.1,18.75
+ Duuvall Jags,Sam LaPorta,TE,BE,DET,QUESTIONABLE,188.65,0.1,18.87
+ Duuvall Jags,Michael Wilson,WR,BE,ARI,ACTIVE,176.36,0.1,17.64
+ Duuvall Jags,MarShawn Lloyd,RB,BE,GB,ACTIVE,134.39,0.1,13.44
+ Duuvall Jags,Justin Herbert,QB,BE,LAC,ACTIVE,283.58,0.1,28.36
+ Duuvall Jags,Matthew Golden,WR,BE,GB,ACTIVE,188.59,0.1,18.86
+ Duuvall Jags,Cameron Dicker,K,K,LAC,QUESTIONABLE,161.89,1.0,161.89
+ Duuvall Jags,Eagles D/ST,D/ST,D/ST,PHI,NORMAL,107.07,1.0,107.07
+Koreatown  Chopsticks,Amon-Ra St. Brown,WR,WR,DET,ACTIVE,323.98,1.0,323.98
+Koreatown  Chopsticks,Saquon Barkley,RB,RB,PHI,ACTIVE,273.3,1.0,273.3
+Koreatown  Chopsticks,Kenneth Walker III,RB,RB,KC,ACTIVE,273.08,1.0,273.08
+Koreatown  Chopsticks,Josh Allen,QB,QB,BUF,ACTIVE,370.03,1.0,370.03
+Koreatown  Chopsticks,Ladd McConkey,WR,WR,LAC,ACTIVE,221.0,1.0,221.0
+Koreatown  Chopsticks,Bhayshul Tuten,RB,BE,JAX,QUESTIONABLE,206.02,0.1,20.6
+Koreatown  Chopsticks,Terry McLaurin,WR,FLEX,WSH,ACTIVE,218.04,1.0,218.04
+Koreatown  Chopsticks,Brandon Aubrey,K,K,DAL,ACTIVE,171.47,1.0,171.47
+Koreatown  Chopsticks,Kyle Pitts Sr.,TE,TE,ATL,ACTIVE,184.96,1.0,184.96
+Koreatown  Chopsticks,Jonathon Brooks,RB,BE,CAR,QUESTIONABLE,179.63,0.1,17.96
+Koreatown  Chopsticks,Travis Kelce,TE,BE,KC,ACTIVE,177.18,0.1,17.72
+Koreatown  Chopsticks,Broncos D/ST,D/ST,BE,DEN,NORMAL,130.78,0.1,13.08
+Koreatown  Chopsticks,Blake Corum,RB,BE,LAR,ACTIVE,159.29,0.1,15.93
+Koreatown  Chopsticks,Chris Godwin Jr.,WR,BE,TB,ACTIVE,157.19,0.1,15.72
+Koreatown  Chopsticks,Lions D/ST,D/ST,D/ST,DET,NORMAL,107.97,1.0,107.97
+Koreatown  Chopsticks,Brock Purdy,QB,BE,SF,ACTIVE,291.59,0.1,29.16
+Mr Mahomo ,Bijan Robinson,RB,RB,ATL,ACTIVE,352.38,1.0,352.38
+Mr Mahomo ,De'Von Achane,RB,RB,MIA,ACTIVE,293.22,1.0,293.22
+Mr Mahomo ,A.J. Brown,WR,WR,NE,ACTIVE,249.44,1.0,249.44
+Mr Mahomo ,Garrett Wilson,WR,WR,NYJ,ACTIVE,250.06,1.0,250.06
+Mr Mahomo ,Javonte Williams,RB,FLEX,DAL,ACTIVE,259.49,1.0,259.49
+Mr Mahomo ,Davante Adams,WR,BE,LAR,ACTIVE,232.21,0.1,23.22
+Mr Mahomo ,Jayden Daniels,QB,QB,WSH,ACTIVE,317.01,1.0,317.01
+Mr Mahomo ,George Kittle,TE,TE,SF,QUESTIONABLE,193.29,1.0,193.29
+Mr Mahomo ,Marvin Harrison Jr.,WR,BE,ARI,ACTIVE,193.6,0.1,19.36
+Mr Mahomo ,Tony Pollard,RB,BE,TEN,ACTIVE,185.54,0.1,18.55
+Mr Mahomo ,Christian Watson,WR,BE,GB,ACTIVE,188.47,0.1,18.85
+Mr Mahomo ,Aaron Jones Sr.,RB,BE,MIN,ACTIVE,178.22,0.1,17.82
+Mr Mahomo ,Jordan Addison,WR,BE,MIN,ACTIVE,170.66,0.1,17.07
+Mr Mahomo ,Jason Myers,K,K,SEA,ACTIVE,158.52,1.0,158.52
+Mr Mahomo ,Steelers D/ST,D/ST,D/ST,PIT,NORMAL,124.55,1.0,124.55
+Mr Mahomo ,Makai Lemon,WR,BE,PHI,ACTIVE,155.16,0.1,15.52
+Renfrow v Wade,Christian McCaffrey,RB,RB,SF,QUESTIONABLE,341.52,1.0,341.52
+Renfrow v Wade,Justin Jefferson,WR,WR,MIN,ACTIVE,293.86,1.0,293.86
+Renfrow v Wade,Derrick Henry,RB,RB,BAL,ACTIVE,277.81,1.0,277.81
+Renfrow v Wade,Rashee Rice,WR,WR,KC,ACTIVE,259.26,1.0,259.26
+Renfrow v Wade,Zay Flowers,WR,FLEX,BAL,QUESTIONABLE,238.47,1.0,238.47
+Renfrow v Wade,Tyler Warren,TE,TE,IND,QUESTIONABLE,210.48,1.0,210.48
+Renfrow v Wade,Quinshon Judkins,RB,BE,CLE,ACTIVE,226.75,0.1,22.68
+Renfrow v Wade,Rome Odunze,WR,BE,CHI,QUESTIONABLE,213.19,0.1,21.32
+Renfrow v Wade,Jalen Hurts,QB,QB,PHI,ACTIVE,319.84,1.0,319.84
+Renfrow v Wade,DK Metcalf,WR,BE,PIT,QUESTIONABLE,195.79,0.1,19.58
+Renfrow v Wade,Rico Dowdle,RB,BE,PIT,ACTIVE,188.32,0.1,18.83
+Renfrow v Wade,Dallas Goedert,TE,BE,PHI,ACTIVE,176.95,0.1,17.7
+Renfrow v Wade,Jaxson Dart,QB,BE,NYG,ACTIVE,299.53,0.1,29.95
+Renfrow v Wade,Ravens D/ST,D/ST,D/ST,BAL,NORMAL,118.55,1.0,118.55
+Renfrow v Wade,Jake Bates,K,K,DET,ACTIVE,145.91,1.0,145.91
+Renfrow v Wade,Jacory Croskey-Merritt,RB,BE,WSH,QUESTIONABLE,158.8,0.1,15.88
+The Godfather,Jahmyr Gibbs,RB,RB,DET,ACTIVE,369.07,1.0,369.07
+The Godfather,Omarion Hampton,RB,RB,LAC,ACTIVE,261.71,1.0,261.71
+The Godfather,Brock Bowers,TE,TE,LV,ACTIVE,240.88,1.0,240.88
+The Godfather,DeVonta Smith,WR,WR,PHI,ACTIVE,239.08,1.0,239.08
+The Godfather,Emeka Egbuka,WR,WR,TB,QUESTIONABLE,228.77,1.0,228.77
+The Godfather,Tee Higgins,WR,FLEX,CIN,QUESTIONABLE,218.92,1.0,218.92
+The Godfather,Cam Skattebo,RB,BE,NYG,ACTIVE,227.39,0.1,22.74
+The Godfather,Joe Burrow,QB,QB,CIN,ACTIVE,304.33,1.0,304.33
+The Godfather,Mike Evans,WR,BE,SF,QUESTIONABLE,179.96,0.1,18.0
+The Godfather,Courtland Sutton,WR,BE,DEN,ACTIVE,204.11,0.1,20.41
+The Godfather,Josh Jacobs,RB,BE,GB,DAY_TO_DAY,164.04,0.1,16.4
+The Godfather,Seahawks D/ST,D/ST,D/ST,SEA,NORMAL,122.29,1.0,122.29
+The Godfather,Alec Pierce,WR,BE,IND,ACTIVE,185.29,0.1,18.53
+The Godfather,Kyle Monangai,RB,BE,CHI,QUESTIONABLE,174.74,0.1,17.47
+The Godfather,RJ Harvey,RB,BE,DEN,ACTIVE,149.37,0.1,14.94
+The Godfather,Eddy Pineiro,K,K,SF,ACTIVE,155.13,1.0,155.13
+Last-a-Minutemen,Puka Nacua,WR,WR,LAR,QUESTIONABLE,353.57,1.0,353.57
+Last-a-Minutemen,Chase Brown,RB,RB,CIN,ACTIVE,271.61,1.0,271.61
+Last-a-Minutemen,Trey McBride,TE,TE,ARI,ACTIVE,241.64,1.0,241.64
+Last-a-Minutemen,Chris Olave,WR,WR,NO,ACTIVE,249.6,1.0,249.6
+Last-a-Minutemen,Travis Etienne Jr.,RB,RB,NO,ACTIVE,246.39,1.0,246.39
+Last-a-Minutemen,Bucky Irving,RB,FLEX,TB,ACTIVE,206.86,1.0,206.86
+Last-a-Minutemen,DJ Moore,WR,BE,BUF,ACTIVE,209.57,0.1,20.96
+Last-a-Minutemen,Luther Burden III,WR,BE,CHI,QUESTIONABLE,206.47,0.1,20.65
+Last-a-Minutemen,Rhamondre Stevenson,RB,BE,NE,ACTIVE,206.7,0.1,20.67
+Last-a-Minutemen,Parker Washington,WR,BE,JAX,ACTIVE,187.23,0.1,18.72
+Last-a-Minutemen,Dak Prescott,QB,QB,DAL,ACTIVE,286.11,1.0,286.11
+Last-a-Minutemen,Chuba Hubbard,RB,BE,CAR,QUESTIONABLE,180.01,0.1,18.0
+Last-a-Minutemen,Rams D/ST,D/ST,D/ST,LAR,NORMAL,124.44,1.0,124.44
+Last-a-Minutemen,Stefon Diggs,WR,BE,WSH,ACTIVE,172.93,0.1,17.29
+Last-a-Minutemen,Trevor Lawrence,QB,BE,JAX,ACTIVE,289.55,0.1,28.96
+Last-a-Minutemen,Harrison Mevis,K,K,LAR,ACTIVE,159.43,1.0,159.43

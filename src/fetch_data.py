@@ -84,14 +84,35 @@ for team in league.teams:
             "slot_position": player.lineupSlot,
             "pro_team": player.proTeam,
             "injury_status": player.injuryStatus,
+            "projected_total_points": player.projected_total_points,
         })
         
 fantasy_roster = pd.DataFrame(roster)
 
 fantasy_roster["slot_position"] = fantasy_roster["slot_position"].replace({"RB/WR/TE": "FLEX"})
 
+def get_slot_weight(slot):
+    if slot == 'BE':
+        return 0.1
+    elif slot == 'IR':
+        return 0
+    else:
+        return 1.0
+    
+fantasy_roster["slot_weight"] = fantasy_roster["slot_position"].apply(get_slot_weight)
+fantasy_roster["weighted_projection"] = (fantasy_roster["slot_weight"] * fantasy_roster["projected_total_points"]).round(2)
+
 os.makedirs("data/raw", exist_ok=True)
 fantasy_roster.to_csv("data/raw/fantasy_roster.csv", index=False)
 
 print("Fantasy roster CSV saved: data/raw/fantasy_roster.csv")
 print(fantasy_roster.head())
+
+team_projections = (
+    fantasy_roster.groupby("team_name")["weighted_projection"]
+    .sum()
+    .reset_index()
+    .rename(columns={"weighted_projection": "projected_team_points"})
+)
+
+team_projections.to_csv("data/raw/team_projections.csv", index=False)

@@ -3,7 +3,9 @@ from dotenv import load_dotenv
 from espn_api.football import League
 import pandas as pd
 
-
+# ----------------------------
+# Load environment variables
+# ----------------------------
 load_dotenv()
 
 league_id = int(os.getenv("LEAGUE_ID"))
@@ -11,6 +13,9 @@ year = int(os.getenv("YEAR"))
 espn_s2 = os.getenv("ESPN_S2")
 swid = os.getenv("ESPN_SWID")
 
+# ----------------------------
+# Connect to ESPN league
+# ----------------------------
 league_kwargs = {
     "league_id": league_id,
     "year": year,
@@ -22,24 +27,25 @@ if espn_s2 and swid:
 
 league = League(**league_kwargs)
 
-
+# ----------------------------
+# Fetch weekly matchup data
+# ----------------------------
 rows = []
 
 for week in range(1, league.settings.reg_season_count + 1):
     box_scores = league.box_scores(week)
 
     for matchup in box_scores:
-        # Skip bye weeks
         if matchup.home_team is None or matchup.away_team is None:
+            continue
+        if matchup.home_score == 0 and matchup.away_score == 0:
             continue
 
         home = matchup.home_team
         away = matchup.away_team
-
         home_score = matchup.home_score
         away_score = matchup.away_score
 
-        # Home team row
         rows.append({
             "team": home.team_name,
             "week": week,
@@ -49,7 +55,6 @@ for week in range(1, league.settings.reg_season_count + 1):
             "opponent": away.team_name
         })
 
-        # Away team row
         rows.append({
             "team": away.team_name,
             "week": week,
@@ -59,19 +64,9 @@ for week in range(1, league.settings.reg_season_count + 1):
             "opponent": home.team_name
         })
 
-
-
-df = pd.DataFrame(rows)
-df = df.sort_values(["team", "week"]).reset_index(drop=True)
-
-
-os.makedirs("data/raw", exist_ok=True)
-df.to_csv("data/raw/weekly_stats.csv", index=False)
-
-print("CSV saved: data/raw/weekly_stats.csv")
-print(df.head())
-print(f"\nTotal rows: {len(df)}")
-
+# ----------------------------
+# Fetch roster data
+# ----------------------------
 roster = []
 
 for team in league.teams:
@@ -86,27 +81,25 @@ for team in league.teams:
             "injury_status": player.injuryStatus,
             "projected_total_points": player.projected_total_points,
         })
-        
-fantasy_roster = pd.DataFrame(roster)
 
+fantasy_roster = pd.DataFrame(roster)
 fantasy_roster["slot_position"] = fantasy_roster["slot_position"].replace({"RB/WR/TE": "FLEX"})
 
+# ----------------------------
+# Compute weighted projections
+# ----------------------------
 def get_slot_weight(slot):
-    if slot == 'BE':
+    if slot == "BE":
         return 0.1
-    elif slot == 'IR':
-        return 0
+    elif slot == "IR":
+        return 0.0
     else:
         return 1.0
-    
+
 fantasy_roster["slot_weight"] = fantasy_roster["slot_position"].apply(get_slot_weight)
-fantasy_roster["weighted_projection"] = (fantasy_roster["slot_weight"] * fantasy_roster["projected_total_points"]).round(2)
-
-os.makedirs("data/raw", exist_ok=True)
-fantasy_roster.to_csv("data/raw/fantasy_roster.csv", index=False)
-
-print("Fantasy roster CSV saved: data/raw/fantasy_roster.csv")
-print(fantasy_roster.head())
+fantasy_roster["weighted_projection"] = (
+    fantasy_roster["slot_weight"] * fantasy_roster["projected_total_points"]
+).round(2)
 
 team_projections = (
     fantasy_roster.groupby("team_name")["weighted_projection"]
@@ -115,4 +108,27 @@ team_projections = (
     .rename(columns={"weighted_projection": "projected_team_points"})
 )
 
+# ----------------------------
+# Save to CSV
+# ----------------------------
+os.makedirs("data/raw", exist_ok=True)
+
+if rows:
+    df = pd.DataFrame(rows)
+    df = df.sort_values(["team", "week"]).reset_index(drop=True)
+    df.to_csv("data/raw/weekly_stats.csv", index=False)
+    print("CSV saved: data/raw/weekly_stats.csv")
+    print(df.head())
+    print(f"\nTotal rows: {len(df)}")
+else:
+    print("No completed matchups found — weekly_stats.csv not written.")
+
+fantasy_roster.to_csv("data/raw/fantasy_roster.csv", index=False)
+
+print("\nFantasy roster CSV saved: data/raw/fantasy_roster.csv")
+print(fantasy_roster.head())
+
 team_projections.to_csv("data/raw/team_projections.csv", index=False)
+print("\nTeam projections CSV saved: data/raw/team_projections.csv")
+print(team_projections.head())
+

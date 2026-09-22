@@ -31,20 +31,41 @@ league = League(**league_kwargs)
 # Fetch weekly matchup data
 # ----------------------------
 rows = []
+def get_lineup_score(lineup):
+    return sum(
+        p.points for p in lineup
+        if p.slot_position not in {"BE", "IR"}
+    )
 
 for week in range(1, league.settings.reg_season_count + 1):
     box_scores = league.box_scores(week)
 
+        # Check if this week has real data by sampling the first matchup
+    first = next((m for m in box_scores if m.home_team and m.away_team), None)
+    if first is None:
+        break
+    
+    home_score = get_lineup_score(first.home_lineup)
+    away_score = get_lineup_score(first.away_lineup)
+    
+    # If scores match the previous week exactly, we've hit stale data
+    if week > 1 and round(home_score, 2) == last_home_score:
+        break
+    
+    last_home_score = round(home_score, 2)
+
     for matchup in box_scores:
         if matchup.home_team is None or matchup.away_team is None:
             continue
-        if matchup.home_score == 0 and matchup.away_score == 0:
+
+        home_score = get_lineup_score(matchup.home_lineup)
+        away_score = get_lineup_score(matchup.away_lineup)
+
+        if home_score == 0 and away_score == 0:
             continue
 
         home = matchup.home_team
         away = matchup.away_team
-        home_score = matchup.home_score
-        away_score = matchup.away_score
 
         rows.append({
             "team": home.team_name,
@@ -132,3 +153,6 @@ team_projections.to_csv("data/raw/team_projections.csv", index=False)
 print("\nTeam projections CSV saved: data/raw/team_projections.csv")
 print(team_projections.head())
 
+box_scores = league.box_scores(1)
+matchup = box_scores[0]
+print(matchup.__dict__)

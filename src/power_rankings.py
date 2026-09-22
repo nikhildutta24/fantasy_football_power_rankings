@@ -18,15 +18,13 @@ injuries_df = pd.read_csv(INJURY_PATH)
 roster_df = pd.read_csv(ROSTER_PATH)
 projections_df = pd.read_csv(PROJECTIONS_PATH)
 
-stats_df["team"] = stats_df["team"].str.strip().str.replace(r"\s+", " ", regex=True)
 roster_df["team_name"] = roster_df["team_name"].str.strip().str.replace(r"\s+", " ", regex=True)
 projections_df["team_name"] = projections_df["team_name"].str.strip().str.replace(r"\s+", " ", regex=True)
 injuries_df["NAME"] = injuries_df["NAME"].str.strip().str.replace(r"\s+", " ", regex=True)
 
 if not stats_df.empty:
+    stats_df["team"] = stats_df["team"].str.strip().str.replace(r"\s+", " ", regex=True)
     stats_df = stats_df.sort_values(["team", "week"])
-    stats_df["team"] = stats_df["team"].str.lstrip()
-    stats_df["team"] = stats_df["team"].str.replace(r"\s+", " ", regex=True)
 
 current_week = int(stats_df["week"].max()) if not stats_df.empty else 0
 
@@ -52,47 +50,50 @@ POSITION_WEIGHTS = {
     "K": 1.0
 }
 
-def injury_impact(row):
-    status = row["STATUS"]
-    position = row["position"]
-    is_starter = row["slot_position"] not in {"BE", "IR"}
+def roster_injury_impact(team_roster_df, position_weights):
+    starters = team_roster_df[~team_roster_df["slot_position"].isin({"BE", "IR"})]
+    bench = team_roster_df[team_roster_df["slot_position"] == "BE"]
 
-    if pd.isna(status):
-        return 0
+    total_impact = 0
 
-    s = str(status).lower().replace("_", " ").strip()
+    for _, injured in starters[starters["STATUS"].notna()].iterrows():
+        status = str(injured["STATUS"]).lower().strip()
 
-    if "injured reserve" in s or s == "ir":
-        base = 1.0
-    elif s == "doubtful":
-        base = 0.5
-    elif s in {"questionable", "probable"}:
-        return 0.25
-    else:
-        return 0
+        if "injured reserve" in status or status == "doubtful":
+            replacement = bench[bench["position"] == injured["position"]]
 
-    pos_weight = POSITION_WEIGHTS.get(position, 1.0)
-    starter_mult = 1.0 if is_starter else 0.25
+            if not replacement.empty:
+                best_backup = replacement["projected_total_points"].max()
+                dropoff = max(injured["projected_total_points"] - best_backup, 0)
+            else:
+                dropoff = injured["projected_total_points"]
 
-    return base * pos_weight * starter_mult
+            pos_weight = position_weights.get(injured["position"], 1.0)
+            total_impact += (dropoff / 100) * pos_weight
 
-roster_injuries_df["injury_impact"] = roster_injuries_df.apply(injury_impact, axis=1)
+        elif status in {"questionable", "probable"}:
+            total_impact += 0.25 * position_weights.get(injured["position"], 1.0)
+
+    return total_impact
 
 team_injury_impact = (
-    roster_injuries_df.groupby("team_name")["injury_impact"]
-    .sum()
+    roster_injuries_df.groupby("team_name")
+    .apply(lambda df: roster_injury_impact(df, POSITION_WEIGHTS))
     .reset_index()
-    .rename(columns={"injury_impact": "total_injury_impact"})
+    .rename(columns={0: "total_injury_impact"})
 )
 
 # ----------------------------
 # Preseason path
 # ----------------------------
 if current_week == 0:
-    print("No completed matchups found — running preseason rankings.")
-
     team_stats = projections_df.set_index("team_name").copy()
-    team_stats = team_stats.merge(team_injury_impact.set_index("team_name"), left_index=True, right_index=True, how="left")
+    team_stats = team_stats.merge(
+        team_injury_impact.set_index("team_name"),
+        left_index=True,
+        right_index=True,
+        how="left"
+    )
     team_stats["total_injury_impact"] = team_stats["total_injury_impact"].fillna(0)
 
     for col in ["projected_team_points", "total_injury_impact"]:
@@ -106,8 +107,13 @@ if current_week == 0:
     )
 
     team_stats = team_stats.sort_values("power_score", ascending=False)
-    print("\nPreseason Power Rankings:")
-    print(team_stats[["power_score"]])
+
+    print("=" * 50)
+    print("PRESEASON POWER RANKINGS")
+    print("=" * 50)
+    for rank, (team, row) in enumerate(team_stats.iterrows(), 1):
+        print(f"{rank}. {team} ({row['power_score']:+.2f})")
+    print("=" * 50)
     exit()
 
 # ----------------------------
@@ -115,14 +121,14 @@ if current_week == 0:
 # ----------------------------
 stats_df["rolling_avg"] = (
     stats_df.groupby("team")["points_for"]
-    .rolling(3)
+    .rolling(3, min_periods=1)
     .mean()
     .reset_index(level=0, drop=True)
 )
 
 stats_df["rolling_std"] = (
     stats_df.groupby("team")["points_for"]
-    .rolling(3)
+    .rolling(3, min_periods=2)
     .std()
     .reset_index(level=0, drop=True)
 )
@@ -171,8 +177,9 @@ team_stats = stats_df.groupby("team").agg(
     last_week_score=("last_week_score", "mean"),
     wins=("win", "sum"),
     expected_wins=("expected_win", "sum")
-).dropna()
+)
 
+team_stats = team_stats.dropna(subset=["recent_scoring", "season_avg"])
 team_stats["luck"] = team_stats["wins"] - team_stats["expected_wins"]
 
 team_stats = team_stats.merge(
@@ -204,10 +211,9 @@ in_season_features = [
 all_features = in_season_features + ["projected_team_points"]
 
 for col in all_features:
-    team_stats[f"z_{col}"] = (
-        (team_stats[col] - team_stats[col].mean())
-        / team_stats[col].std()
-    )
+    mean = team_stats[col].mean()
+    std = team_stats[col].std()
+    team_stats[f"z_{col}"] = (team_stats[col] - mean) / std if std > 0 else 0.0
 
 # ----------------------------
 # Walk-forward regression
@@ -252,10 +258,9 @@ if results:
     results_df = pd.concat(results, ignore_index=True)
     results_df["diff"] = abs(results_df["predicted_score"] - results_df["actual_score"])
     corr = results_df["predicted_score"].corr(results_df["actual_score"])
-    print(f"Overall prediction correlation: {corr:.3f}")
-    print(results_df.head(20))
 else:
-    print("No week had enough data to train/test the predictive model.")
+    results_df = pd.DataFrame()
+    corr = None
 
 # ----------------------------
 # Static power score
@@ -276,12 +281,9 @@ preseason_score = (
     - 0.30 * team_stats["z_total_injury_impact"]
 )
 
-alpha = min(current_week / 6, 1.0)
+alpha = min(current_week / 4, 1.0)
 team_stats["power_score"] = alpha * in_season_score + (1 - alpha) * preseason_score
-
 team_stats = team_stats.sort_values("power_score", ascending=False)
-print("\nFinal Power Rankings:")
-print(team_stats[["power_score"]])
 
 # ----------------------------
 # Dynamic power score
@@ -294,33 +296,50 @@ if current_week >= 4 and results:
         left_on="team",
         right_index=True,
         how="inner"
-    )
-
-    X_wf = walk_forward_merged[z_in_season_features]
-    Y_wf = walk_forward_merged["actual_score"]
+    ).dropna(subset=z_in_season_features)
 
     reg = LinearRegression()
-    reg.fit(X_wf, Y_wf)
+    reg.fit(walk_forward_merged[z_in_season_features], walk_forward_merged["actual_score"])
 
     weights = pd.Series(reg.coef_, index=z_in_season_features)
-    print("\nLearned dynamic weights:\n", weights.sort_values(ascending=False))
 
     team_stats["dynamic_power_score"] = team_stats[z_in_season_features] @ weights
     team_stats["dynamic_power_score_z"] = (
         (team_stats["dynamic_power_score"] - team_stats["dynamic_power_score"].mean())
         / team_stats["dynamic_power_score"].std()
     )
-
     team_stats = team_stats.sort_values("dynamic_power_score_z", ascending=False)
-    print("Dynamic Power Rankings:")
-    print(team_stats[["dynamic_power_score_z"]])
+    ranking_col = "dynamic_power_score_z"
+    ranking_label = "POWER RANKINGS (Dynamic Model)"
 else:
-    print(f"Week {current_week}: not enough data for dynamic model, using blended score only.")
+    ranking_col = "power_score"
+    ranking_label = f"POWER RANKINGS (Week {current_week} — Blended Score)"
+
+# ----------------------------
+# Print rankings blurb
+# ----------------------------
+print()
+print(f"{ranking_label}")
+print()
+
+header = f"{'Rank':<6}{'Team':<25}{'Wins':<10}{'PPG':<10}{'Score':<10}"
+divider = "-" * len(header)
+
+print(header)
+print(divider)
+
+for rank, (team, row) in enumerate(team_stats.iterrows(), 1):
+    score = row[ranking_col]
+    wins = int(row["wins"])
+    avg = row["season_avg"]
+    print(f"{rank:<6}{team:<25}{wins:<10}{avg:<10.1f}{score:<+10.2f}")
+
+print(divider)
 
 # ----------------------------
 # Model performance visualization
 # ----------------------------
-if results:
+if not results_df.empty:
     fig, ax = plt.subplots(figsize=(8, 8))
     ax.scatter(results_df["actual_score"], results_df["predicted_score"], alpha=0.6, edgecolors="white", linewidths=0.5)
     min_val = min(results_df["actual_score"].min(), results_df["predicted_score"].min())
@@ -330,7 +349,7 @@ if results:
     ax.set_ylabel("Predicted Score")
     ax.set_title("Predicted vs Actual Scores (Walk-Forward Model)")
     ax.legend()
-    ax.text(0.05, 0.95, f"r = {corr:.3f}", transform=ax.transAxes, fontsize=12, verticalalignment="top")
+    ax.text(0.05, 0.95, f"r = {corr:.3f}", transform=ax.transAxes, fontsize=12 , verticalalignment="top")
     plt.tight_layout()
     plt.savefig("predicted_vs_actual.png", dpi=150)
     plt.show()

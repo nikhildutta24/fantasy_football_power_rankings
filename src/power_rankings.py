@@ -9,6 +9,7 @@ WEEKLY_STATS_PATH = BASE_DIR / "data" / "raw" / "weekly_stats.csv"
 INJURY_PATH = BASE_DIR / "data" / "raw" / "weekly_injuries.csv"
 ROSTER_PATH = BASE_DIR / "data" / "raw" / "fantasy_roster.csv"
 PROJECTIONS_PATH = BASE_DIR / "data" / "raw" / "team_projections.csv"
+RANKINGS_HISTORY_PATH = BASE_DIR / "data" / "raw" / "rankings_history.csv"
 
 # ----------------------------
 # Load data
@@ -17,6 +18,10 @@ stats_df = pd.read_csv(WEEKLY_STATS_PATH) if WEEKLY_STATS_PATH.exists() else pd.
 injuries_df = pd.read_csv(INJURY_PATH)
 roster_df = pd.read_csv(ROSTER_PATH)
 projections_df = pd.read_csv(PROJECTIONS_PATH)
+if RANKINGS_HISTORY_PATH.exists():
+    prev_rankings = pd.read_csv(RANKINGS_HISTORY_PATH, index_col="team_name")
+else:
+    prev_rankings = pd.DataFrame()
 
 roster_df["team_name"] = roster_df["team_name"].str.strip().str.replace(r"\s+", " ", regex=True)
 projections_df["team_name"] = projections_df["team_name"].str.strip().str.replace(r"\s+", " ", regex=True)
@@ -315,14 +320,21 @@ else:
     ranking_col = "power_score"
     ranking_label = f"POWER RANKINGS (Week {current_week} — Blended Score)"
 
-# ----------------------------
-# Print rankings blurb
-# ----------------------------
+# Compute rank change
+team_stats["rank"] = range(1, len(team_stats) + 1)
+
+if not prev_rankings.empty and "rank" in prev_rankings.columns:
+    team_stats["prev_rank"] = team_stats.index.map(prev_rankings["rank"])
+    team_stats["rank_change"] = team_stats["prev_rank"] - team_stats["rank"]
+else:
+    team_stats["rank_change"] = None
+
+# Print table
 print()
 print(f"{ranking_label}")
 print()
 
-header = f"{'Rank':<6}{'Team':<25}{'Wins':<10}{'PPG':<10}{'Score':<10}"
+header = f"{'Rank':<6}{'Chg':<6}{'Team':<25}{'W':<5}{'PPG':<10}{'Score':<10}"
 divider = "-" * len(header)
 
 print(header)
@@ -332,9 +344,22 @@ for rank, (team, row) in enumerate(team_stats.iterrows(), 1):
     score = row[ranking_col]
     wins = int(row["wins"])
     avg = row["season_avg"]
-    print(f"{rank:<6}{team:<25}{wins:<10}{avg:<10.1f}{score:<+10.2f}")
+
+    if pd.isna(row["rank_change"]):
+        chg = "NEW"
+    elif row["rank_change"] > 0:
+        chg = f"+{int(row['rank_change'])}"
+    elif row["rank_change"] < 0:
+        chg = str(int(row["rank_change"]))
+    else:
+        chg = "--"
+
+    print(f"{rank:<6}{chg:<6}{team:<25}{wins:<5}{avg:<10.1f}{score:<+10.2f}")
 
 print(divider)
+
+# Save current rankings for next week
+team_stats[["rank"]].to_csv(RANKINGS_HISTORY_PATH)
 
 # ----------------------------
 # Model performance visualization
@@ -353,3 +378,19 @@ if not results_df.empty:
     plt.tight_layout()
     plt.savefig("predicted_vs_actual.png", dpi=150)
     plt.show()
+    
+    
+if not results_df.empty:
+    mae = results_df["diff"].mean()
+    rmse = np.sqrt((results_df["diff"] ** 2).mean())
+    corr = results_df["predicted_score"].corr(results_df["actual_score"])
+    baseline_mae = (results_df["actual_score"] - results_df["actual_score"].mean()).abs().mean()
+    skill_score = 1 - (mae / baseline_mae)
+
+    print("\nModel Validation Metrics:")
+    print(f"  MAE:            {mae:.2f} pts")
+    print(f"  RMSE:           {rmse:.2f} pts")
+    print(f"  Correlation:    {corr:.3f}")
+    print(f"  Baseline MAE:   {baseline_mae:.2f} pts")
+    print(f"  Skill Score:    {skill_score:.3f}")
+    
